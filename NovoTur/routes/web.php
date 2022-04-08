@@ -20,6 +20,11 @@ Route::view('contacto', 'contact')->name('contact');
 
 Route::view('inicio', 'home')->name('home');
 
+Route::view('tienda', 'shop')->name('shop');
+
+Route::view('reservas', 'booking')->name('booking');
+
+
 Route::get('/', function () {
     return view('home');
 });
