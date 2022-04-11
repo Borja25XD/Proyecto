@@ -3,3 +3,12 @@ li {
     line-height: 60px;
     font-size: 18px;
 }
+
+footer li {
+    line-height: normal;
+    font-size: 16px;
+}
+
+footer label {
+    font-weight: bold;
+}

@@ -1,5 +1,7 @@
 @extends(".layouts/base")
 
 @section('content')
-    <h1>Página de reservas</h1>
+    <div class="container">
+        <h1>Página de reservas</h1>
+    </div>
 @endsection

@@ -1,5 +1,7 @@
 @extends(".layouts/base")
 
 @section('content')
-    <h1>Página de about</h1>
+    <div class="container">
+        <h1>Página de about</h1>
+    </div>
 @endsection
