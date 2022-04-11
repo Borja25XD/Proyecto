@@ -1,8 +1,8 @@
 @extends(".layouts/base")
 
 @section('content')
-    <h1>{{ __('Contact') }}</h1>
     <div class="container">
+        <h1>{{ __('Contact') }}</h1>
         <form method="POST" class="needs-validation" novalidate action="{{ route('contact') }}">
             @csrf
             <div class="mb-3">
@@ -44,8 +44,8 @@
             <div class="mb-3">
                 <label for="lang">{{ __('Language') }}:</label>
                 <select name="lang" class="form-select">
-                    <option value="es">{{ __('Español') }}</option>
-                    <option value="en">{{ __('Inglés') }}</option>
+                    <option value="es">{{ __('Spanish') }}</option>
+                    <option value="en">{{ __('English') }}</option>
                 </select>
             </div>
             <button class="btn btn-primary" name="contact" value="send">Enviar</button>

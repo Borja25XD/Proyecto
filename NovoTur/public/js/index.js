@@ -1,3 +1,1 @@
-let footerLinks =  document.querySelector("footer");
-//footerLinks = footerLinks.querySelectorAll("a");
-console.log(footerLinks);
+let footerLinks =  document.querySelectorAll("footer a");

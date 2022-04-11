@@ -24,6 +24,9 @@ Route::view('tienda', 'shop')->name('shop');
 
 Route::view('reservas', 'booking')->name('booking');
 
+Route::view('cookies', 'cookies')->name('cookies');
+
+Route::view('cuenta', "account_dashboard")->name('dashboard');
 
 Route::get('/', function () {
     return view('home');

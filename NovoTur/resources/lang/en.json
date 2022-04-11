@@ -5,5 +5,9 @@
     "The :attribute must contain at least one uppercase and one lowercase letter.": "The :attribute must contain at least one uppercase and one lowercase letter.",
     "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "The given :attribute has appeared in a data leak. Please choose a different :attribute.",
     "Español": "Spanish", 
-    "Logo de Futpad": "Futpad's logo"
+    "Logo de Futpad": "Futpad's logo", 
+    "Sobre Futpad": "About Futpad", 
+    "Localización": "Location", 
+    "Política de cookies": "Cookies policy", 
+    "Services": "Services"
 }

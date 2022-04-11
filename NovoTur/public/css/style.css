@@ -1,7 +1,28 @@
-
 li {
     line-height: 60px;
     font-size: 18px;
+}
+
+body {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 1) 18%,
+        rgba(141, 198, 61, 1) 100%
+    );
+}
+
+nav a {
+    color: #8dc63d !important;
+}
+
+nav a:hover {
+    color: #1e617e !important;
+}
+
+footer {
+    background-color: black;
+    color: white;
 }
 
 footer li {
@@ -11,4 +32,16 @@ footer li {
 
 footer label {
     font-weight: bold;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: #fe6e61;
+}
+
+footer > .row {
+    margin-top: 3rem;
 }
