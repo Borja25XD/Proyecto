@@ -16,382 +16,324 @@ class ProductsSeeder extends Seeder
     {
         $products = [
             [
-                'name' => 'Cubregrip - Bullpadel',
+                'name' => 'Covergrip - Bullpadel',
                 'short_name' => 'CUBREGRIP',
-                'description' => 'Para jugadores de todos los niveles que quieren mejorar la adherencia de su grip.
-                
-                Ideal para los jugadores de todos los niveles que quieren mejorar la adherencia de su grip.',
+                'description' => 'For players of all levels who want to improve their grip grip. Ideal for players of all levels who want to improve their grip grip.',
                 'price' => 5,
                 'category' => 'Accesories',
                 'brand' => 'Bullpadel',
                 'url' => 'cubregrip-bullpadel',
             ],
             [
-                'name' => 'Desodorante de calzado',
+                'name' => 'Shoe deodorant',
                 'short_name' => 'DESODORANTE',
-                'description' => 'Este desodorante permite neutralizar eficazmente los malos olores del calzado deportivo.
-
-                Puedes quitarte las zapatillasconfiadamente. El spray neutralizador BAMA no enmascara los olores, los elimina y deja un perfume fresco. MUY fácil de usar.',
+                'description' => 'This deodorant effectively neutralizes the odors of sports shoes. You can take off your shoes safely. The BAMA neutralizing spray does not mask odors, removes them and leaves a fresh perfume. VERY easy to use.',
                 'price' => 6,
                 'category' => 'Accesories',
                 'brand' => 'Bama',
                 'url' => 'desodorante-bama-calzado',
             ],
             [
-                'name' => 'Gorra - Adidas',
+                'name' => 'Cap - Adidas',
                 'short_name' => 'GORRA',
-                'description' => 'Jugadores de Padel/Tenis que busquen una gorra con buena protección solar.
-
-                Esta gorra deportiva Adidas te protegerá del sol y te aportará mucha comodidad gracias a su ligereza.',
+                'description' => 'Padel/Tennis players looking for a cap with good sun protection. This Adidas sports cap will protect you from the sun and bring you a lot of comfort thanks to its lightness.',
                 'price' => 17,
                 'category' => 'Accesories',
                 'brand' => 'Adidas',
                 'url' => 'gorra-adidas',
             ],
             [
-                'name' => 'Magnesio líquido',
+                'name' => 'Liquid Magnesium',
                 'short_name' => 'MAGNESIO',
-                'description' => 'Nuestro equipo ha creado este magnesio para los escaladores que sudan poco en escalada pero quieren un magnesio con un poco de agarre sin demasiado alcohol.
-
-                Con poco porcentaje de alcohol (30%) para cuidar la piel de las manos, seca menos las manos después de su uso. Se puede utilizar como complemento del magnesio en polvo.',
+                'description' => 'Our team has created this magnesium for climbers who sweat little in climbing but want a magnesium with a little grip without too much alcohol. With little percentage of alcohol (30%) to care for the skin of the hands, dry less hands after use. It can be used as a supplement to magnesium powder.',
                 'price' => 7,
                 'category' => 'Accesories',
                 'brand' => 'Simond',
                 'url' => 'magnesioliquido-simond',
             ],
             [
-                'name' => 'Munequeras - Adidas',
+                'name' => 'Wristbands - Adidas',
                 'short_name' => 'MUNEQUERAS',
-                'description' => 'Para la práctica de deportes de raqueta/pala con tiempo caluroso, también son adecuadas para otros deportes de raqueta/pala.
-
-                Esta muñequera de deporte larga Adidas ofrece una absorción máxima del sudor. Detiene el chorreo a lo largo del brazo para facilitar el agarre de la raqueta/pala.',
+                'description' => 'For playing racquet/shovel sports in hot weather, they are also suitable for other racquet/shovel sports. This long sports wristband Adidas offers maximum absorption of sweat. Stops squirting along the arm for easy racket/shovel grip.',
                 'price' => 12,
                 'category' => 'Accesories',
                 'brand' => 'Adidas',
                 'url' => 'munequeras-adidas',
             ],
             [
-                'name' => 'Venda de sujecion - Tarmaik',
+                'name' => 'Bandage suitable - Tarmaik',
                 'short_name' => 'VENDA',
-                'description' => 'Venda reutilizable de sujeción adaptada para vendar articulaciones o músculos durante la práctica deportiva.
-
-                Venda de sujeción elástica y reutilizable 8 cm x 1,2 m. Útil con vendas autoadherentes para sujetar y proteger articulaciones y músculos.',
+                'description' => 'Reusable bandage suitable for bandaging joints or muscles during sports practice. Elastic and reusable support bandage 8 cm x 1.2 m. Useful with self-adhesive bandages to hold and protect joints and muscles.',
                 'price' => 6,
                 'category' => 'Accesories',
                 'brand' => 'Tarmaik',
                 'url' => 'vendasujecion-tarmaik',
             ],
             [
-                'name' => 'Pelotas de padel - Babolat',
+                'name' => 'Padel balls - Babolat',
                 'short_name' => 'PELOTASBAB',
-                'description' => 'Jugadores de pádel en perfeccionamiento.
-
-                Pelotas de pádel con presión, duraderas y vivas para los entrenamientos.',
+                'description' => 'Paddle players in improvement. Paddle balls with pressure, durable and live for training.',
                 'price' => 5,
                 'category' => 'Balls',
                 'brand' => 'Babolat',
                 'url' => 'pelota-de-padel-babolat',
             ],
             [
-                'name' => 'Pelotas de padel - Head',
+                'name' => 'Padel balls - Head',
                 'short_name' => 'PELOTASHEA',
-                'description' => 'Ideal para jugadores que buscan una pelota viva para intercambios rápidos.
-
-                La pelota Head Pro, en su versión S, tiene un núcleo totalmente nuevo, que le proporciona velocidad y dinamismo.',
+                'description' => 'Ideal for players looking for a live ball for quick exchanges. The Head Pro ball, in its S version, has a completely new core, which gives it speed and dynamism.',
                 'price' => 5,
                 'category' => 'Balls',
                 'brand' => 'Head',
                 'url' => 'pelota-de-padel-head',
             ],
             [
-                'name' => 'Presurizador para pelotas - Kuikma',
+                'name' => 'Ball pressurizer - Kuikma',
                 'short_name' => 'PRESURIZADORKUI',
-                'description' => 'Mantiene la presión de las pelotas de pádel entre las dos partes para prolongar su vida útil',
+                'description' => 'It maintains the pressure of the paddle balls between the two parts to prolong its service life.',
                 'price' => 20,
                 'category' => 'Balls',
                 'brand' => 'Kuikma',
                 'url' => 'presurizador-padel-kuikma',
             ],
             [
-                'name' => 'Presurizador para pelotas - Tuboplus',
+                'name' => 'Ball pressurizer - Tuboplus',
                 'short_name' => 'PRESURIZADORTUB',
-                'description' => 'Presurizador de Pelotas, mantiene la presión de la pelota con el paso del tiempo, evitando que esta pierda bote en su uso',
+                'description' => 'Ball pressurizer, keeps the pressure of the ball over time, preventing the ball from losing pot in use.',
                 'price' => 20,
                 'category' => 'Balls',
                 'brand' => 'Tuboplus',
                 'url' => 'presurizador-padel-tuboplus',
             ],
             [
-                'name' => 'Pack de pelotas - Head',
+                'name' => 'Balls Pack - Head',
                 'short_name' => 'PACKHEA',
-                'description' => 'Pack 3 botes Head Padel Profesional, para jugadores experimentados, las pelotas oficiales del circuito WTP',
+                'description' => 'Pack 3 pots Head Padel Professional, for experienced players, the official balls of the circuit WTP.',
                 'price' => 21,
                 'category' => 'Balls',
                 'brand' => 'Head',
                 'url' => 'tripack-pelota-padel-head',
             ],
             [
-                'name' => 'Pack de pelotas - Kuikma',
+                'name' => 'Balls Pack - Kuikma',
                 'short_name' => 'PACKKUI',
-                'description' => 'Concebido para jugadores expertos que quieren una pelota que se mantiene dinámica en condiciones de juego lentas (temperatura moderada, nivel del mar, humedad)
-
-                Ideal para jugadores de pádel expertos que quieren jugar con bola viva en condiciones de juego lentas (temperatura moderada, nivel del mar, humedad).',
+                'description' => 'Designed for expert players who want a ball that stays dynamic in slow playing conditions (moderate temperature, sea level, humidity) Ideal for expert paddle players who want to play with live ball in slow playing conditions (moderate temperature, sea level, humidity).',
                 'price' => 13,
                 'category' => 'Balls',
                 'brand' => 'Kuikma',
                 'url' => 'tripack-pelota-padel-kuikma',
             ],
             [
-                'name' => 'Camiseta de nino - Artengo',
+                'name' => 'Kid T-shirt - Artengo',
                 'short_name' => 'CAMISETANINOART',
-                'description' => 'Nuestros diseñadores han concebido esta camiseta para jóvenes jugadores de tenis que juegan con tiempo cálido, también adecuada para otros deportes de raqueta.
-
-                Camiseta de tenis ligera y transpirable.Sus colores variados permiten combinarla con el short 500 de tu elección para lucir un estilo muy tendencia.',
+                'description' => 'Our designers have designed this t-shirt for young tennis players who play with warm weather, also suitable for other racquet sports. Lightweight and breathable tennis shirt.Its varied colors allow to combine it with the short 500 of your choice to show off a very trendy style.',
                 'price' => 12,
                 'category' => 'Clothes',
                 'brand' => 'Artengo',
                 'url' => 'camiseta-artengo-nino',
             ],
             [
-                'name' => 'Camiseta de hombre - Black Crown',
+                'name' => 'Man T-shirt - Black Crown',
                 'short_name' => 'CAMISETAHOMBREBLA',
-                'description' => 'Fabricado con poliamida y elastano, fibras innovadoras que aportan ligereza, movilidad y comodidad. Son de secado rápido, absorben la humedad y están bien ventilados.',
+                'description' => 'Made of polyamide and elastane, innovative fibers that provide lightness, mobility and comfort. They are quick drying, absorb moisture and are well ventilated.',
                 'price' => 32,
                 'category' => 'Clothes',
                 'brand' => 'Blackcrown',
                 'url' => 'camiseta-blackcrown-hombre',
             ],
             [
-                'name' => 'Camiseta de mujer - Black Crown',
+                'name' => 'Woman T-shirt - Black Crown',
                 'short_name' => 'CAMISETAMUJERBLA',
-                'description' => 'Es transpirable, absorbe la humedad y se seca rápidamente. Proporcionan ligereza, movilidad y comodidad. Con dos grandes bolsillos y cintura elástica.',
+                'description' => 'It is breathable, absorbs moisture and dries quickly. They provide lightness, mobility and comfort. With two large pockets and elastic waist.',
                 'price' => 46,
                 'category' => 'Clothes',
                 'brand' => 'Blackcrown',
                 'url' => 'camiseta-blackcrown-mujer',
             ],
             [
-                'name' => 'Pantalon de hombre - Artengo',
+                'name' => 'Man Short - Artengo',
                 'short_name' => 'PANTALONHOMBREART',
-                'description' => 'Nuestros equipos de desarrollo han creado este pantalón para que puedas iniciarte en los deportes de raqueta sin pasar calor.
-
-                Pantalón corto de tenis para sentirse cómodo en la cancha. Ligero y con una buena libertad de movimientos, cómodo de llevar mientras se juega. Bolsillos grandes para guardar las pelotas sin molestias.',
+                'description' => 'Our development teams have created these pants so you can get started in racquet sports without getting hot. Tennis shorts to feel comfortable on the court. Light and with good freedom of movement, comfortable to wear while playing. Large pockets to store balls without discomfort.',
                 'price' => 6,
                 'category' => 'Clothes',
                 'brand' => 'Artengo',
                 'url' => 'pantalon-artengo-hombre',
             ],
             [
-                'name' => 'Pantalon de mujer - Artengo',
+                'name' => 'Woman Short - Artengo',
                 'short_name' => 'PANTALONMUJERART',
-                'description' => 'Nuestro equipo, apasionado por el tenis, ha concebido este short de tenis para partidos o entrenamientos.
-
-                Con este short transpirable, ¡estas listo para una serie de intercambios o puntos! Bolsillos de diseno especial para guardar las pelotas.',
+                'description' => 'Our team, passionate about tennis, has designed this tennis shorts for matches or training. With this breathable short, you are ready for a series of exchanges or stitches! Special design pockets to keep the balls.',
                 'price' => 12,
                 'category' => 'Clothes',
                 'brand' => 'Artengo',
                 'url' => 'pantalon-artengo-mujer',
             ],
             [
-                'name' => 'Vestido de nina - Artengo',
+                'name' => 'Girl dress - Artengo',
                 'short_name' => 'VESTIDONINAART',
-                'description' => 'Nuestros disenadores han concebido este vestido para la practica del tenis, prenda tambien adecuada para otros deportes de raqueta.
-
-                Vestido "gran estilo" ¡para que tu futura campeona gane con clase!',
+                'description' => 'Our designers have designed this dress for tennis practice, garment also suitable for other racquet sports. Dress great style for your future champion to win with class!',
                 'price' => 20,
                 'category' => 'Clothes',
                 'brand' => 'Artengo',
                 'url' => 'vestido-artengo-nina',
             ],
             [
-                'name' => 'Pala de padel de nino - Artengo',
+                'name' => 'Kid padle bat - Artengo',
                 'short_name' => 'PALANINOART',
-                'description' => 'Ideal para jugadores de padel junior (de 9 a 11 anos) en iniciacion.
-
-                Ideal para jugadores de padel de nivel iniciacion que buscan una pala que aune manejabilidad y control.',
+                'description' => 'Ideal for junior padel players (9 to 11 years old) in initiation. Ideal for beginner level padel players looking for a shovel that combines manageability and control.',
                 'price' => 25,
                 'category' => 'Padelbat',
                 'brand' => 'Artengo',
                 'url' => 'pala-de-padel-artengo-nino',
             ],
             [
-                'name' => 'Pala de padel - Babolat',
+                'name' => 'Padle bat - Babolat',
                 'short_name' => 'PALABAB',
-                'description' => 'Concebida para jugadores de pádel en perfeccionamiento.
-
-                Pala de pádel polivalente en forma de lágrima, perfecta si está buscando potencia y control al mismo tiempo.',
+                'description' => 'Designed for paddle tennis players in advanced training. Tear-shaped multi-purpose paddle, perfect if you are looking for power and control at the same time.',
                 'price' => 85,
                 'category' => 'Padelbat',
                 'brand' => 'Babolat',
                 'url' => 'pala-de-padel-babolat',
             ],
             [
-                'name' => 'Pala de padel - Babolat',
+                'name' => 'Padle bat - Babolat',
                 'short_name' => 'PALABAB2',
-                'description' => 'Concebida para jugadores de pádel expertos.
-
-                La Babolat Technical Viper es una pala de pádel para jugadores expertos que buscan potencia y precisión en los golpes de ataque.',
+                'description' => 'Designed for expert padel players. The Babolat Technical Viper is a paddle shovel for expert players looking for power and precision in attack strikes.',
                 'price' => 290,
                 'category' => 'Padelbat',
                 'brand' => 'Babolat',
                 'url' => 'pala-de-padel-babolat2',
             ],
             [
-                'name' => 'Pala de padel - Head',
+                'name' => 'Padle bat - Head',
                 'short_name' => 'PALAHEA',
-                'description' => 'Concebido para jugadores de pádel en perfeccionamiento.
-
-                Ideal para jugadores de pádel en perfeccionamiento que buscan una pala de pádel potente.',
+                'description' => 'Designed for paddle players in perfecting. Ideal for paddle players in perfecting looking for a powerful paddle paddle.',
                 'price' => 90,
                 'category' => 'Padelbat',
                 'brand' => 'Head',
                 'url' => 'pala-de-padel-head',
             ],
             [
-                'name' => 'Pala de padel - Head',
+                'name' => 'Padle bat - Head',
                 'short_name' => 'PALAHEA2',
-                'description' => 'Concebida para jugadores de pádel expertos.
-
-                Mejora el toque, la precisión y la potencia con la PALA DE PÁDEL ALPHA ELITE, la pala más potente de una gama orientada al control.',
+                'description' => 'Designed for expert padel players. Improve touch, precision and power with the ALPHA ELITE PADDLE, the most powerful paddle in a control-oriented range.',
                 'price' => 160,
                 'category' => 'Padelbat',
                 'brand' => 'Head',
                 'url' => 'pala-de-padel-head2',
             ],
             [
-                'name' => 'Pala de padel de nino - Kuikma',
+                'name' => 'Kid padle bat - Kuikma',
                 'short_name' => 'PALANINOKUI',
-                'description' => '',
+                'description' => 'Thermal zone for 3 blades. Large central area. Bottom pocket for shoes. Pockets for personal items. Removable and adjustable ergonomic strap. Padded handles.',
                 'price' => 45,
                 'category' => 'Padelbat',
                 'brand' => 'Kuikma',
                 'url' => 'pala-padel-kuikma-nino',
             ],
             [
-                'name' => 'Paletero basico - Black Crown',
+                'name' => 'Basic padle bat bag - Black Crown',
                 'short_name' => 'PALETEROBLA',
-                'description' => 'Zona térmica para 3 palas. Amplia zona central. Bolsillo inferior para los zapatos. Bolsillos para objetos personales. Correa ergonómica extraíble y ajustable. Asas acolchadas.',
+                'description' => 'Thermal zone for 3 blades. Large central area. Bottom pocket for shoes. Pockets for personal items. Removable and adjustable ergonomic strap. Padded handles',
                 'price' => 74,
                 'category' => 'Padelbatbag',
                 'brand' => 'Blackcrown',
                 'url' => 'paletero-blackcrown',
             ],
             [
-                'name' => 'Paletero basico - Bullpadel',
+                'name' => 'Basic padle bat bag - Bullpadel',
                 'short_name' => 'PALETEROBAB',
-                'description' => 'Concebido para jugadoras de pádel en perfeccionamiento.
-
-                Es ideal para jugadoras de pádel en perfeccionamiento que quieren transportar sus enseres y proteger las palas de pádel.',
+                'description' => 'Designed for paddle players in improvement. It is ideal for perfecting paddle players who want to transport their belongings and protect paddles.',
                 'price' => 35,
                 'category' => 'Padelbatbag',
                 'brand' => 'Bullpad',
                 'url' => 'paletero-bullpadel',
             ],
             [
-                'name' => 'Paletero mochila - Bullpadel',
+                'name' => 'Padle bat bag - Bullpadel',
                 'short_name' => 'PALETEROBUL',
-                'description' => 'Concebida para jugadores de pádel expertos.
-
-                Mochila de pádel elegida por Juan Tello y Fede Chingotto (jugadores del WPT). Es ideal para jugadores de pádel expertos que quieren transportar sus enseres y proteger las palas de pádel.',
+                'description' => 'Designed for expert paddle players. Paddle backpack chosen by Juan Tello and Fede Chingotto (WPT players). It is ideal for expert paddle players who want to transport their belongings and protect paddles.',
                 'price' => 50,
                 'category' => 'Padelbatbag',
                 'brand' => 'Bullpad',
                 'url' => 'paletero-bullpadelbag',
             ],
             [
-                'name' => 'Paletero nextGen - Bullpadel',
+                'name' => 'NextGen Padle bat bag - Bullpadel',
                 'short_name' => 'PALETERONEXBUL',
-                'description' => 'Concebido para jugadores de pádel expertos.
-
-                Paletero ideal para jugadores de pádel expertos que quieren transportar sus enseres y proteger las palas de pádel.',
+                'description' => 'Designed for expert padel players. Ideal pallet for expert paddle players who want to transport their belongings and protect paddles.',
                 'price' => 73,
                 'category' => 'Padelbatbag',
                 'brand' => 'Bullpad',
                 'url' => 'paletero-bullpadelnext',
             ],
             [
-                'name' => 'Paletero basico - Head',
+                'name' => 'Basic padle bat bag - Head',
                 'short_name' => 'PALETEROHEA',
-                'description' => 'Concebido para jugadores de pádel de nivel iniciación.
-
-                Pequeño paletero de pádel ideal para jugadores de pádel de nivel iniciación.',
+                'description' => 'Designed for beginner level paddle players. Small paddle paddle player ideal for beginner level paddle players.',
                 'price' => 35,
                 'category' => 'Padelbatbag',
                 'brand' => 'Head',
                 'url' => 'paletero-head',
             ],
             [
-                'name' => 'Paletero basico - Kuikma',
+                'name' => 'Basic padle bat bag - Kuikma',
                 'short_name' => 'PALETEROKUI',
-                'description' => 'Jugadores de pádel expertos
-
-                Mochila ideal para jugadores de pádel expertos que buscan una bolsa para transportar las palas de pádel y todo el conjunto.',
+                'description' => 'Expert paddle tennis players. Ideal backpack for expert paddle players looking for a bag to transport paddles and the whole set.',
                 'price' => 35,
                 'category' => 'Padelbatbag',
                 'brand' => 'Kuikma',
                 'url' => 'paletero-kuikma',
             ],
             [
-                'name' => 'Deportivas de mujer - Artengo',
+                'name' => 'Woman sneakers - Artengo',
                 'short_name' => 'DEPORMUJERART',
-                'description' => 'La práctica del pádel, de nivel experto.
-
-                Estas zapatillas de pádel te aportarán la sujeción y la duración necesarias para los desplazamientos intensivos.',
+                'description' => 'The practice of paddle, expert level. These paddle tennis shoes will give you the necessary support and duration for intensive travel.',
                 'price' => 40,
                 'category' => 'Sportshoes',
                 'brand' => 'Artengo',
                 'url' => 'zapatillas-artengo-mujer',
             ],
             [
-                'name' => 'Deportivas de hombre - Babolat',
+                'name' => 'Man sneakers - Babolat',
                 'short_name' => 'DEPORHOMBREBAB',
-                'description' => 'Concebidas para jugar al pádel, nivel experto.
-
-                Las zapatillas Babolat Jet Premura se han concebido para jugar al pádel, nivel experto. Las zapatillas de Juan Lebron, número 1 mundial.',
+                'description' => 'Designed to play paddle, expert level. Babolat Jet Premura shoes are designed to play paddle, expert level. Juan Lebron’s shoes, number one in the world.',
                 'price' => 150,
                 'category' => 'Sportshoes',
                 'brand' => 'Babolat',
                 'url' => 'zapatillas-babolat-hombre',
             ],
             [
-                'name' => 'Deportivas de hombre - Bpthermofit',
+                'name' => 'Man sneakers - Bpthermofit',
                 'short_name' => 'DEPORHOMBREBPT',
-                'description' => 'Concebidas para jugadores de pádel expertos.
-
-                Las zapatillas Bpthermofit movea 22 son un modelo polivalente para los competidores de pádel. Tienen refuerzos para una gran duración y son cómodas gracias al mesh de punto en la puntera,',
+                'description' => 'Designed for expert paddle players. Bpthermofit movea 22 shoes are a versatile model for paddle tennis competitors. They have reinforcements for a great durability and are comfortable thanks to the knitted mesh on the toe.',
                 'price' => 115,
                 'category' => 'Sportshoes',
                 'brand' => 'Bpthermofit',
                 'url' => 'zapatillas-bpthermofit-hombre',
             ],
             [
-                'name' => 'Deportivas de mujer - Kuikma',
+                'name' => 'Woman sneakers - Kuikma',
                 'short_name' => 'DEPORMUJERKUI',
-                'description' => 'Concebidas para la práctica del pádel nivel experto.
-
-                Estas zapatillas de pádel te aportarán el dinamismo necesario en los desplazamientos intensivos gracias a su ligereza y su flexibilidad.',
+                'description' => 'Designed for expert level paddle practice. These paddle tennis shoes will give you the necessary dynamism in intensive travel thanks to their lightness and flexibility.',
                 'price' => 65,
                 'category' => 'Sportshoes',
                 'brand' => 'Kuikma',
                 'url' => 'zapatillas-kuikma-mujer',
             ],
             [
-                'name' => 'Deportivas de nino - Kuikma',
+                'name' => 'Kid sneakers - Kuikma',
                 'short_name' => 'DEPORNINOKUI',
-                'description' => 'La práctica del pádel, de nivel iniciación
-
-                Las zapatillas de pádel aportarán el agarre necesario a los jóvenes jugadores de pádel para jugar sobre hierba sintética con arena sin resbalar.',
+                'description' => 'The practice of paddle, initiation level. The paddle tennis shoes will provide the necessary grip to young paddle players to play on synthetic grass with sand without slipping.',
                 'price' => 19,
                 'category' => 'Sportshoes',
                 'brand' => 'Kuikma',
                 'url' => 'zapatillas-kuikma-nino',
             ],
             [
-                'name' => 'Deportivas de nino - Kuikma',
+                'name' => 'Kid sneakers - Kuikma',
                 'short_name' => 'DEPORNINOKUI2',
-                'description' => 'Para la práctica del pádel, de nivel perfeccionamiento.
-
-                Las zapatillas de pádel te aportarán el agarre necesario para jugar sobre hierba sintética con arena y amortiguación para una mejor absorción de los impactos.',
+                'description' => 'For the practice of paddle, advanced level. The paddle shoes will give you the necessary grip to play on synthetic grass with sand and cushioning for better absorption of impacts.',
                 'price' => 28,
                 'category' => 'Sportshoes',
                 'brand' => 'Kuikma',
