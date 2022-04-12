@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container">
-        <h1>Página de reservas</h1>
+        <h1>{{ __("Book your padbol pitch")}}</h1>
     </div>
 @endsection

@@ -23,9 +23,6 @@ nav a:hover {
 footer {
     background-color: black;
     color: white;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
 
 footer li {
@@ -47,4 +44,8 @@ footer a:hover {
 
 footer > .row {
     margin-top: 3rem;
+}
+
+.actual {
+    color: #1e617e !important;
 }
