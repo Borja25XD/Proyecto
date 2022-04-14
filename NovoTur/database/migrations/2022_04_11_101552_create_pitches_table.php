@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePitchsTable extends Migration
+class CreatePitchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreatePitchsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pitchs', function (Blueprint $table) {
-            $table->id("id");
-            $table->enum('status', ['free', 'taken', "unavailable"]);
+        Schema::create('pitches', function (Blueprint $table) {
+            $table->id('id');
+             $table->enum('status', ['available', "unavailable"]);
         });
     }
 
@@ -26,6 +26,6 @@ class CreatePitchsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pitchs');
+        Schema::dropIfExists('pitches');
     }
 }

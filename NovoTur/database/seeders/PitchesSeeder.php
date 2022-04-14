@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PitchSeeder extends Seeder
+class PitchesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,17 +14,17 @@ class PitchSeeder extends Seeder
      */
     public function run()
     {
-        $pitchs = [
+        $pitches = [
             [
-                'status' => 'free'
+                'status' => 'available',
             ],
             [
-                'status' => 'taken'
+                'status' => 'available'
             ],
             [
                 'status' => 'unavailable'
             ]
         ];
-        DB::table('pitchs')->insert($pitchs);
+        DB::table('pitches')->insert($pitches);
     }
 }

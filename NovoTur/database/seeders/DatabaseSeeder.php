@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             ProductsSeeder::class, 
-            PitchSeeder::class
+            PitchesSeeder::class,
+            BookingSeeder::class
         ]);
     }
 }

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateBookingsTable extends Migration
 {
@@ -14,16 +15,19 @@ class CreateBookingsTable extends Migration
     public function up()
     {
         Schema::create('bookings', function (Blueprint $table) {
-            $table->bigInteger('booking_id');
+            $table->integer('id')->unsigned();
             $table->bigInteger('pitch_id')->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->primary(['booking_id', 'pitch_id']);
+            $table->date('date');
+            $table->enum('hour', ['9', '10', '11', '12', '17', '18', '19', '20', '21']);
+            $table->primary(['id', 'pitch_id', 'date', 'hour']);
             $table->string('owner_name');
-            $table->string('owner_email')->unique();
-            $table->dateTime('from');
-            $table->dateTime('to');
+            $table->string('owner_email');
         });
+
+        DB::statement('ALTER TABLE bookings MODIFY id INTEGER NOT NULL AUTO_INCREMENT');
+
     }
 
     /**

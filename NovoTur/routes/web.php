@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,7 @@ Route::view('inicio', 'home')->name('home');
 
 Route::view('tienda', 'shop')->name('shop');
 
-Route::view('reservas', 'booking')->name('booking');
+Route::resource('reservas', BookingController::class)->names(["index" => "booking"]);
 
 Route::view('cookies', 'cookies')->name('cookies');
 
