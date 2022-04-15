@@ -3,6 +3,14 @@
 @section('content')
     <div class="container">
         <h1>Página de la tienda</h1>
+        @foreach($products as $product)
+            <div class="card" style="width: 18rem;">
+                <h5 class="card-title">{{$product->name}}</h5>
+                <p class="card-text">{{$product->description}}</p>
+            </div>
+        @endforeach
+
+       
         {{-- @foreach($product as $prod)
             <div class="card" style="width: 18rem;">
                 <img src="img/guntherrall.jpg" class="card-img-top img-fluidS">
