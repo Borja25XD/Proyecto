@@ -27,3 +27,5 @@ function setDateLimits() {
     bookingDate.setAttribute("max", maxDate);
 }
 
+
+

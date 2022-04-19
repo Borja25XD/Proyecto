@@ -21,21 +21,55 @@
             </form>
         @else
             <div class="row">
+                <?php
+                $bookings = DB::select(DB::raw('SELECT * FROM  bookings WHERE date = :variable'), ['variable' => $_GET['bookingDate']]);
+                ?>
                 @foreach ($pitches as $pitch)
                     @if ($pitch->status != 'unavailable')
                         <label class="d-block my-2">{{ __('Pitch') }} {{ $pitch->id }}</label>
-                        <div class="d-inline my-1 col-12" id={{ $pitch->id }}>
+                        <div class="d-inline my-1 col-12" id="Cancha{{ $pitch->id }}">
                             <label class="d-block my-2">{{ __('Morning') }}</label>
                             @foreach ($hours as $hour)
+                                <?php $triggered = 0; ?>
                                 @if ($hour == 17)
                                     <label class="d-block my-2">{{ __('Evening') }}</label>
                                 @endif
-                                <div class="d-inline-block bg-white col-2 text-center appointment">{{ $hour }}:00</div>
+                                @foreach ($bookings as $booking)
+                                    @if ($booking->hour == $hour && $pitch->id == $booking->pitch_id)
+                                        <?php $triggered = 1; ?>
+                                        <div class="d-inline-block bg-danger col-2 text-center appointment">
+                                            {{ $hour }}:00
+                                        </div>
+                                    @endif
+                                @endforeach
+                                @if ($triggered == 0)
+                                    <div class="d-inline-block bg-white col-2 text-center appointment">
+                                        {{ $hour }}:00
+                                    </div>
+                                @endif
                             @endforeach
                         </div>
                     @endif
                 @endforeach
             </div>
+            <form>
+                <input type="hidden" value="">
+                <input type="submit" value={{ __('Book') }}>
+            </form>
         @endif
     </div>
+@endsection
+
+@section('script')
+    <script>
+        let appointments = document.querySelector("#Cancha1");
+        console.log(appointments);
+        appointments = appointments.querySelectorAll(".bg-white");
+        appointments.forEach(element => {
+            element.addEventListener("click", (e) => {
+                e.target.classList.toggle("bg-white");
+                e.target.classList.toggle("bg-success");
+            });
+        });
+    </script>
 @endsection
