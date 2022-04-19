@@ -1,17 +1,22 @@
 @extends(".layouts/base")
 
+@section('css')
+    <link rel="stylesheet" href={{ asset('/css/style.css?v=') . time() }}>
+    {{-- Aqui puedes poner otro css específico para la tienda como hice en booking --}}
+@endsection
+
 @section('content')
     <div class="container">
         <h1>Página de la tienda</h1>
-        @foreach($products as $product)
+        @foreach ($products as $product)
             <div class="card" style="width: 18rem;">
-                <h5 class="card-title">{{$product->name}}</h5>
-                <p class="card-text">{{$product->description}}</p>
+                <h5 class="card-title">{{ $product->name }}</h5>
+                <p class="card-text">{{ $product->description }}</p>
             </div>
         @endforeach
 
-       
-        {{-- @foreach($product as $prod)
+
+        {{-- @foreach ($product as $prod)
             <div class="card" style="width: 18rem;">
                 <img src="img/guntherrall.jpg" class="card-img-top img-fluidS">
                 <div class="card-body">
