@@ -8,7 +8,6 @@ function run() {
     setDateLimits();
 }
 
-
 function setDateLimits() {
     let year = dtToday.getFullYear() + 1;
     let month = dtToday.getMonth();

@@ -16,7 +16,6 @@ class BookingSeeder extends Seeder
     {
         $bookings = [
             [
-                'id' => 0,
                 'pitch_id' => 1,
                 'date' => '2022-04-30', 
                 'hour' => '9',
@@ -25,7 +24,6 @@ class BookingSeeder extends Seeder
 
             ],
             [
-                'id' => 0,
                 'pitch_id' => 2,
                 'date' => '2022-04-30', 
                 'hour' => '9',
@@ -33,7 +31,6 @@ class BookingSeeder extends Seeder
                 'owner_email' => 'pepe@pepe.com'
             ],
             [
-                'id' => 0,
                 'pitch_id' => 2,
                 'date' => '2022-04-30', 
                 'hour' => '10',

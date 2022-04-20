@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\BookProcessController;
 use App\Http\Controllers\ProductsController;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Route;
 
 
@@ -27,7 +29,14 @@ Route::view('tienda', 'shop')->name('shop');
 
 Route::resource('tienda', ProductsController::class)->names(["index" => "shop"]);
 
-Route::resource('reservas', BookingController::class)->names(["index" => "booking"]);
+Route::controller(BookingController::class)->group(function () {
+    Route::post("reserva", "store")->name("booking");
+    Route::get("reserva", "index")->name("booking");
+});
+
+//Route::resource('reservas', BookingController::class)->names(["index" => "booking", "store" => "algo"]);
+
+//Route::post('reservas', 'App\Http\Controllers\BookingController@' . 'store')->name("reservas.store");
 
 Route::view('cookies', 'cookies')->name('cookies');
 

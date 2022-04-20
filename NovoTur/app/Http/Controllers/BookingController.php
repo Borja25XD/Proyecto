@@ -39,7 +39,24 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return ($request);
+        foreach ($request->pitches as $key => $pitch) {
+            $hours = explode(",", $pitch);
+            foreach ($hours as $hour) {
+                if ($hour != null) {
+                    Bookings::insert(
+                        [
+                            'pitch_id' => $key,
+                            'date' => $request->date,
+                            'hour' => $hour,
+                            'owner_name' => $request->owner_name,
+                            'owner_email' => $request->owner_email
+                        ]
+                    );
+                }
+            }
+        };
+        return ($request);
     }
 
     /**
