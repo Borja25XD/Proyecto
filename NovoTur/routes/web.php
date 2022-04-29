@@ -34,6 +34,8 @@ Route::controller(BookingController::class)->group(function () {
     Route::get("reserva", "index")->name("booking");
 });
 
+Route::view('reservaconfirmada', 'booking_confirmed')->name('booking_confirmed');
+
 //Route::resource('reservas', BookingController::class)->names(["index" => "booking", "store" => "algo"]);
 
 //Route::post('reservas', 'App\Http\Controllers\BookingController@' . 'store')->name("reservas.store");

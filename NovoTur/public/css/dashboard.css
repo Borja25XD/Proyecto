@@ -1,0 +1,41 @@
+.nav-link {
+    border-top-right-radius: 0rem !important;
+    border-bottom-left-radius: 0.4rem;
+    border-top-left-radius: 0.4rem !important;
+    border-right: 0px !important;
+}
+
+.active {
+    border: none !important;
+}
+
+.nav-tabs {
+    border-top-right-radius: 0rem;
+    border-bottom-left-radius: 0.4rem;
+    border-top-left-radius: 0.4rem !important;
+}
+
+#v-pills-tabContent > div {
+    border-color: #dee2e6 #dee2e6 #fff;
+    border: 1px solid transparent;
+    background-color: #fff;
+    padding: 0.5rem;
+    border-top-right-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
+}
+
+#v-pills-tab {
+    font-size: 10px;
+}
+
+p {
+    margin-top: 1rem;
+    margin-bottom: 0px;
+    border-bottom: 1px solid black;
+}
+
+.data {
+    font-size: 14px;
+}
+

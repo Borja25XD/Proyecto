@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" type="image/ico" href="./favicon.ico"/>
+    
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -29,6 +30,9 @@
             @yield('content')
         </main>
     </div>
+    <footer>
+        @include('footer')
+    </footer>
 </body>
 
 </html>

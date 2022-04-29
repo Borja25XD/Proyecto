@@ -16,7 +16,7 @@
             <label for="bookingDate" class="d-block my-2">{{ __('Select a date') }}:</label>
             <form>
                 <input type="date" name="bookingDate" id="bookingDate">
-                <input type="submit" value={{ __('Search') }}>
+                <input type="submit" value="{{ __('Search') }}" class="btn btn-primary">
             </form>
         @else
             <div class="row" id="canchas">
@@ -24,7 +24,7 @@
                 <form>
                     @csrf
                     <input type="date" name="bookingDate" id="bookingDate" value="{{ $_GET['bookingDate'] }}">
-                    <input type="submit" value={{ __('Search') }}>
+                    <input type="submit" value="{{ __('Search') }}" class="btn btn-primary">
                 </form>
                 <?php
                 $bookings = DB::select(DB::raw('SELECT * FROM  bookings WHERE date = :variable'), ['variable' => $_GET['bookingDate']]);
@@ -59,7 +59,7 @@
                     @endif
                 @endforeach
             </div>
-            <form action={{ route('booking') }} id="sendForm" method="POST">
+            <form class="" action={{ route('booking') }} id="sendForm" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 @foreach ($pitches as $pitch)
                     @if ($pitch->status != 'unavailable')
@@ -67,11 +67,17 @@
                     @endif
                 @endforeach
                 <input type="hidden" name="date" value={{ $_GET['bookingDate'] }}>
-                <label for="owner_name" class="d-block my-2">{{ __('Name')}}:</label>
-                <input type="text" name="owner_name">
-                <label for="owner_email" class="d-block my-2">{{ __('Email')}}:</label>
-                <input type="email" name="owner_email">
-                <input type="submit" class="d-block my-3" value={{ __('Book') }} id="send">
+                @auth
+                    <input type="hidden" name="owner_name" value="{{ auth()->user()->name }}" required>
+                    <input type="hidden" name="owner_email" value="{{ auth()->user()->email }}" required>
+                @endauth
+                @guest
+                    <label for="owner_name" class="d-block my-2 form-label">{{ __('Name') }}:</label>
+                    <input class="form-control" type="text" name="owner_name" placeholder="" required>
+                    <label for="owner_email" class="d-block my-2 form-label">{{ __('Email') }}:</label>
+                    <input class="form-control" type="email" name="owner_email" placeholder="name@example.com" required>
+                @endguest
+                <input type="submit" class="d-block my-3 btn btn-primary" value="{{ __('Book') }}" id="send">
             </form>
         @endif
     </div>
@@ -83,7 +89,6 @@
         let inputs = FORM.querySelectorAll("input[type=hidden]");
         let appointments = document.querySelector("#canchas");
         let book = document.querySelector("#send");
-        console.log(appointments);
         let emptyAppointments = appointments.querySelectorAll(".bg-white");
         let picked;
         emptyAppointments.forEach(element => {
@@ -93,11 +98,6 @@
                 update();
             });
         });
-
-        /* book.addEventListener("click", (e) => {
-             e.preventDefault();
-             window.location.href = FORM.action;
-         });*/
 
         function update() {
             picked = appointments.querySelectorAll(".bg-success");
@@ -120,7 +120,6 @@
             fill = [...inputs];
             fill.forEach(element => {
                 if (fill.indexOf(element) != 0 && dates[fill.indexOf(element)] != undefined) {
-                    console.log(fill.indexOf(element));
                     element.value = dates[fill.indexOf(element)].toString();
                 }
             });

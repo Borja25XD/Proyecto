@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bookings;
 use Illuminate\Http\Request;
 use App\Models\Pitches;
+use Illuminate\Support\Facades\DB;
 
 class BookingController extends Controller
 {
@@ -40,23 +41,35 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         //return ($request);
+        request()->validate([
+            "owner_name" => 'required',
+            "owner_email" => 'required|email',
+        ]);
         foreach ($request->pitches as $key => $pitch) {
             $hours = explode(",", $pitch);
             foreach ($hours as $hour) {
                 if ($hour != null) {
-                    Bookings::insert(
-                        [
-                            'pitch_id' => $key,
-                            'date' => $request->date,
-                            'hour' => $hour,
-                            'owner_name' => $request->owner_name,
-                            'owner_email' => $request->owner_email
-                        ]
-                    );
+                    if (DB::table('bookings')->where([
+                        ['date', '=', $request->date],
+                        ['hour', '=', $hour],
+                        ['pitch_id', '=', $key]
+                    ])->doesntExist()) {
+                        Bookings::insert(
+                            [
+                                'pitch_id' => $key,
+                                'date' => $request->date,
+                                'hour' => $hour,
+                                'owner_name' => $request->owner_name,
+                                'owner_email' => $request->owner_email
+                            ]
+                        );
+                    } else {
+                        return ("fallo");
+                    }
                 }
             }
         };
-        return ($request);
+        return (view('booking_confirmed'));
     }
 
     /**

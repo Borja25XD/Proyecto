@@ -6,7 +6,7 @@ li {
 body {
     background: rgb(255, 255, 255);
     background: linear-gradient(
-        180deg,
+        0deg,
         rgba(255, 255, 255, 1) 18%,
         rgba(141, 198, 61, 1) 100%
     );

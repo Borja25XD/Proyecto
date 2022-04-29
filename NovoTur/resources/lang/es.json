@@ -819,5 +819,8 @@
     "Evening": "Tarde",
     "Customer support": "Ayuda al cliente", 
     "Book": "Reservar",
-    "Services": "Servicios"
+    "Services": "Servicios", 
+    "Phone": "Teléfono", 
+    "My account": "Mi cuenta",
+    "Account information": "Información de la cuenta"
 }
