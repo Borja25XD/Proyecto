@@ -1,0 +1,15 @@
+.card{
+}
+
+.card-title{
+    color: blue;
+}
+
+.card-body{
+    height: 210px;
+}
+
+.card-img-top{
+    width: 205px;
+    height: 205px;
+}

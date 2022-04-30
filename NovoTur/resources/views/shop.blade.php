@@ -2,28 +2,27 @@
 
 @section('css')
     <link rel="stylesheet" href={{ asset('/css/style.css?v=') . time() }}>
+    <link rel="stylesheet" href={{ asset('/css/shop.css?v=') . time() }}>
     {{-- Aqui puedes poner otro css específico para la tienda como hice en booking --}}
 @endsection
 
 @section('content')
     <div class="container">
         <h1>Página de la tienda</h1>
-        @foreach ($products as $product)
-            <div class="card" style="width: 18rem;">
-                <h5 class="card-title">{{ $product->name }}</h5>
-                <p class="card-text">{{ $product->description }}</p>
+        <div class="row">
+            @foreach ($products as $product)
+            <div class="col-3">
+                <div class="card text-center" style="width: 18rem;">
+                    <img src={{  url("/images/" .$product->url. ".jpg")  }} class="card-img-center" alt="{{ $product->url }}">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ __($product->name) }}</h5>
+                    <p class="card-text">{{ __($product->category) }}</p>
+                    <p class="card-brand">{{ __($product->brand) }}</p>
+                    <a href="#" class="btn btn-primary">{{ __('Show more') }}</a>
+                    </div>
+                </div>
             </div>
         @endforeach
-
-
-        {{-- @foreach ($product as $prod)
-            <div class="card" style="width: 18rem;">
-                <img src="img/guntherrall.jpg" class="card-img-top img-fluidS">
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-        @endforeach --}}
+        </div>
     </div>
 @endsection

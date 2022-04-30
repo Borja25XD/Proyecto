@@ -44,6 +44,8 @@ Route::view('cookies', 'cookies')->name('cookies');
 
 Route::view('cuenta', "account_dashboard")->name('dashboard');
 
+Route::view('producto', 'product')->name('product');
+
 Route::get('/', function () {
     return view('home');
 });
