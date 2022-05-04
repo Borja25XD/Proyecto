@@ -26,13 +26,21 @@
 }
 
 #v-pills-tab {
-    font-size: 10px;
+    font-size: 14px;
 }
 
-p {
+h5:first-of-type {
+    margin-top: 0.5rem;
+    
+}
+
+h5 {
     margin-top: 1rem;
-    margin-bottom: 0px;
-    border-bottom: 1px solid black;
+}
+
+h4 {
+    margin-top: 1rem;
+    text-decoration: underline;
 }
 
 .data {

@@ -40,11 +40,17 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
+        date_default_timezone_set('Europe/London');
         //return ($request);
         request()->validate([
             "owner_name" => 'required',
             "owner_email" => 'required|email',
         ]);
+
+        $currentDate = date("Y-m-d");
+        $failedBookings = [];
+        $currentHour = date("h");
+
         foreach ($request->pitches as $key => $pitch) {
             $hours = explode(",", $pitch);
             foreach ($hours as $hour) {
@@ -54,22 +60,28 @@ class BookingController extends Controller
                         ['hour', '=', $hour],
                         ['pitch_id', '=', $key]
                     ])->doesntExist()) {
-                        Bookings::insert(
-                            [
-                                'pitch_id' => $key,
-                                'date' => $request->date,
-                                'hour' => $hour,
-                                'owner_name' => $request->owner_name,
-                                'owner_email' => $request->owner_email
-                            ]
-                        );
+                        if ($currentDate <= $request->date && $currentHour < $hour) {
+                            Bookings::insert(
+                                [
+                                    'pitch_id' => $key,
+                                    'date' => $request->date,
+                                    'hour' => $hour,
+                                    'owner_name' => $request->owner_name,
+                                    'owner_email' => $request->owner_email
+                                ]
+                            );
+                        } else {
+                            array_push($failedBookings, $request->date);
+                            array_push($failedBookings, $key);
+                            array_push($failedBookings, $hour);
+                        }
                     } else {
                         return ("fallo");
                     }
                 }
             }
         };
-        return (view('booking_confirmed'));
+        return (view('booking_confirmed')->with(["failed" => $failedBookings]));
     }
 
     /**

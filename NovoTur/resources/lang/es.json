@@ -823,5 +823,16 @@
     "Phone": "Teléfono", 
     "My account": "Mi cuenta",
     "Account information": "Información de la cuenta",
-    "Show more": "Ver más"
+    "Show more": "Ver más", 
+    "Bookings": "Reservas", 
+    "Date": "Fecha", 
+    "Hour": "Hora", 
+    "hour": "hora", 
+    "Active bookings": "Reservas activas", 
+    "Your booking has been submitted correctly": "Su reserva se ha realizado con éxito", 
+    "You can check your bookings on": "Puede comprobar sus reservas en el apartado", 
+    "in your profile": "de su perfil",
+    "An error ocurred with some of your bookings": "Ha ocurrido un error con alguna de sus reservas", 
+    "Selected hours not valid": "Las horas seleccionadas no son válidas", 
+    "Make a new booking": "Realizar una nueva reserva"
 }
