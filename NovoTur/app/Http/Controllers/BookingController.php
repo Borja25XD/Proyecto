@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bookings;
+use App\Mail\BookingsConfirmed;
 use Illuminate\Http\Request;
 use App\Models\Pitches;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
@@ -49,6 +51,7 @@ class BookingController extends Controller
 
         $currentDate = date("Y-m-d");
         $failedBookings = [];
+        $bookingData = [];
         $currentHour = date("h");
 
         foreach ($request->pitches as $key => $pitch) {
@@ -61,6 +64,9 @@ class BookingController extends Controller
                         ['pitch_id', '=', $key]
                     ])->doesntExist()) {
                         if ($currentDate <= $request->date && $currentHour < $hour) {
+                            array_push($bookingData, $request->date);
+                            array_push($bookingData, $key);
+                            array_push($bookingData, $hour);
                             Bookings::insert(
                                 [
                                     'pitch_id' => $key,
@@ -75,12 +81,12 @@ class BookingController extends Controller
                             array_push($failedBookings, $key);
                             array_push($failedBookings, $hour);
                         }
-                    } else {
-                        return ("fallo");
                     }
                 }
             }
         };
+        Mail::to($request->owner_email)->queue(new BookingsConfirmed($bookingData));
+
         return (view('booking_confirmed')->with(["failed" => $failedBookings]));
     }
 
