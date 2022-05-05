@@ -43,7 +43,7 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         date_default_timezone_set('Europe/London');
-        //return ($request);
+        //return (auth()->user()->email);
         request()->validate([
             "owner_name" => 'required',
             "owner_email" => 'required|email',
@@ -130,8 +130,19 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        //return(auth()->user()->email);
+        $query = DB::table('bookings')->where([
+            ['owner_email', '=', auth()->user()->email],
+            ['date', '=', $request->date],
+            ['hour', '=', $request->hour],
+            ['pitch_id', '=', $request->pitch]
+        ]);
+        //return($request);
+        if ($query->exists()) {
+            $query->delete();
+        }
+        return (view('account_dashboard')->with(["algo" => 1]));
     }
 }

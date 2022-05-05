@@ -31,6 +31,7 @@ Route::resource('tienda', ProductsController::class)->names(["index" => "shop"])
 
 Route::controller(BookingController::class)->group(function () {
     Route::post("reserva", "store")->name("booking");
+    Route::post("reservas", "destroy")->name("delete");
     Route::get("reserva", "index")->name("booking");
 });
 

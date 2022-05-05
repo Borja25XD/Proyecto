@@ -835,5 +835,6 @@
     "An error ocurred with some of your bookings": "Ha ocurrido un error con alguna de sus reservas", 
     "Selected hours not valid": "Las horas seleccionadas no son válidas", 
     "Make a new booking": "Realizar una nueva reserva", 
-    "Booking data": "Información de reserva"
+    "Booking data": "Información de reserva",
+    "Options": "Opciones"
 }

@@ -15,6 +15,12 @@
     border-top-left-radius: 0.4rem !important;
 }
 
+#v-pills-profile {
+    -webkit-box-shadow: -1px 0px 18px -4px #000000;
+    box-shadow: -1px 0px 18px -4px #000000;
+    border-top-left-radius: 0.4rem;
+}
+
 #v-pills-tabContent > div {
     border-color: #dee2e6 #dee2e6 #fff;
     border: 1px solid transparent;
@@ -31,7 +37,6 @@
 
 h5:first-of-type {
     margin-top: 0.5rem;
-    
 }
 
 h5 {
@@ -46,4 +51,3 @@ h4 {
 .data {
     font-size: 14px;
 }
-
