@@ -49,3 +49,16 @@ footer > .row {
 .actual {
     color: #1e617e !important;
 }
+
+#page {
+    min-height: 80vh;
+}
+
+#dropdownMenuLink {
+    color: white !important;
+    line-height: normal;
+}
+
+#langList {
+    max-width: 20px !important;
+}

@@ -836,5 +836,9 @@
     "Selected hours not valid": "Las horas seleccionadas no son válidas", 
     "Make a new booking": "Realizar una nueva reserva", 
     "Booking data": "Información de reserva",
-    "Options": "Opciones"
+    "Options": "Opciones", 
+    "No active bookings": "No hay reservas activas", 
+    "Languages": "Idiomas", 
+    "English": "Inglés", 
+    "Spanish": "Español"
 }

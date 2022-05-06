@@ -5,6 +5,7 @@ use App\Http\Controllers\BookProcessController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
 
 
 /*
@@ -37,6 +38,12 @@ Route::controller(BookingController::class)->group(function () {
 
 Route::view('reservaconfirmada', 'booking_confirmed')->name('booking_confirmed');
 
+Route::get('locale/{locale}', function ($locale) {
+    //App::setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+});
+
 //Route::resource('reservas', BookingController::class)->names(["index" => "booking", "store" => "algo"]);
 
 //Route::post('reservas', 'App\Http\Controllers\BookingController@' . 'store')->name("reservas.store");
@@ -52,5 +59,3 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-

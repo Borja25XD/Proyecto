@@ -143,6 +143,6 @@ class BookingController extends Controller
         if ($query->exists()) {
             $query->delete();
         }
-        return (view('account_dashboard')->with(["algo" => 1]));
+        return (view('account_dashboard')->with(["bookings" => 1]));
     }
 }
