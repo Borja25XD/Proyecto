@@ -31,7 +31,7 @@
                             <h5 class="card-title">{{ __($product->name) }}</h5>
                             <p class="card-text">{{ __($product->category) }}</p>
                             <p class="card-brand">{{ __($product->brand) }}</p>
-                            <a href="#" class="btn btn-primary">{{ __('Show more') }}</a>
+                            <a href="{{ route('product', $product->id) }}" class="btn btn-primary">{{ __('Show more') }}</a>
                         </div>
                     </div>
                 </div>
