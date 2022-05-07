@@ -18,13 +18,13 @@ footer {
     margin-top: 1.5rem;
 }
 
-a{
+.nav-item-p{
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-a:hover{
+.nav-item-p:hover{
     color:yellow;
 }
 

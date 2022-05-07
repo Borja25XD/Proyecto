@@ -13,12 +13,12 @@
             <div class="col-3">
                 <div class="products-nav">
                     <ul>
-                        <li class="products-nav-item"><a href="">{{ __('Accesories') }}</a></li>
-                        <li class="products-nav-item"><a href="">{{ __('Balls') }}</a></li>
-                        <li class="products-nav-item"><a href="">{{ __('Clothes') }}</a></li>
-                        <li class="products-nav-item"><a href="">{{ __('Padelbat') }}</a></li>
-                        <li class="products-nav-item"><a href="">{{ __('Padelbatbag') }}</a></li>
-                        <li class="products-nav-item"><a href="">{{ __('Sportshoes') }}</a></li>
+                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Accesories') }}</a></li>
+                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Balls') }}</a></li>
+                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Clothes') }}</a></li>
+                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Padelbat') }}</a></li>
+                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Padelbatbag') }}</a></li>
+                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Sportshoes') }}</a></li>
                     </ul>
                 </div>
             </div>
