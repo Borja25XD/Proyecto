@@ -17,3 +17,31 @@
 footer {
     margin-top: 1.5rem;
 }
+
+a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover{
+    color:yellow;
+}
+
+.products-nav{
+    background-color: #3B83BD;
+    border-radius: 15px;
+}
+
+.products-nav-item{
+    list-style: none;
+    text-align: center;
+    padding-right: 35px;
+}
+
+.products-nav-item:hover{
+    background-color: #3b83ac;
+    border-radius: 15px;
+    width: calc(100% - 35px);
+    padding-left: 35px;
+}
