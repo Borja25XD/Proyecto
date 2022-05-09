@@ -59,12 +59,7 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <img src=" {{ url('/images/shopping-cart.png') }}" alt="shopping-cart" style="max-height: 18px;">
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="langList">
-                        <li><a class="dropdown-item" href="{{ url('locale/en') }}"><img
-                                    src=" {{ url('/images/lang/gb.svg') }}" alt="" style="max-height: 10px "> {{ __('English')}}</a>
-                        </li>
-                        <li><a class="dropdown-item" href="{{ url('locale/es') }}"><img
-                                    src=" {{ url('/images/lang/es.svg') }}" alt="" style="max-height: 10px "> {{ __('Spanish')}}</a>
+                    <ul class="dropdown-menu shopping-cart" aria-labelledby="dropdownMenuLink" id="langList">
                         </li>
                         <li><a class="dropdown-item" href="{{ route('cart') }}">{{ __('View all cart') }}</a></li>
                     </ul>

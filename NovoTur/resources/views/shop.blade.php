@@ -13,6 +13,7 @@
             <div class="col-3">
                 <div class="products-nav">
                     <ul>
+                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('All') }}</a></li>
                         <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Accesories') }}</a></li>
                         <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Balls') }}</a></li>
                         <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Clothes') }}</a></li>

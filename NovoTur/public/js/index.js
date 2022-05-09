@@ -1,6 +1,7 @@
 let bookingDate =  document.querySelector("#bookingDate");
 let today = new Date().toISOString().split('T')[0];
 let dtToday = new Date();
+// let shoppingCart = document.querySelector(".shopping-cart");
 
 run();
 
@@ -25,6 +26,28 @@ function setDateLimits() {
     bookingDate.setAttribute("min", today);
     bookingDate.setAttribute("max", maxDate);
 }
+
+// function addProduct(product){
+    
+// }
+
+$(document).ready(function(){
+    $('category_list .category_item[category="all"]').addClass('ct_item-active');
+
+    $('category_item').click(function(){
+        var catProduct = $(this).attr('category');
+        
+        $('.category_item').removeClass('ct_item-active');
+        $(this).addClass('ct_item-active');
+
+        $('product-item').hide();
+
+        $('.product-item[category="'+catProduct+'"]').show();
+    });
+    $('.category_item[category="all"]').click(function(){
+        $('.product-item').show();
+    });
+});
 
 
 
