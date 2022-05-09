@@ -1,4 +1,13 @@
-
 .appointment {
     border-radius: 10px;
+    border: 1px solid black;
+}
+
+#pitchImg{
+    min-width: 200px; 
+    border-radius:0.5rem;
+}
+
+.pitchLabel {
+    margin-top: 2rem;
 }

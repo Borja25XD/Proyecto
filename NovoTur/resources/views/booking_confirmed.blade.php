@@ -10,19 +10,34 @@
 
 @section('content')
     <div class="container bg-white  p-3 my-5">
-        @if (empty($failed))
-            <h3>{{ __('Your booking has been submitted correctly') }}.</h3>
+        @if ($max == true)
+            <h3>{{ __('You have reached maximun active bookings') }}</h3>
+            @if (!empty($failed))
+                <h4>{{ __('Unsuccessfull bookings') }}:</h4>
+                @php
+                    $date = explode('-', $failed[0]);
+                    $date = array_reverse($date);
+                @endphp
+                <h5>{{ __('Date') }}: {{ $date[0] . '-' . $date[1] . '-' . $date[2] }}</h5>
+                @for ($i = 0; $i < count($failed); $i = $i + 3)
+                    <p>{{ __('Pitch') }} {{ $failed[$i + 1] }}, {{ __('hour') }} {{ $failed[$i + 2] }}:00</p>
+                @endfor
+            @endif
         @else
-            <h3>{{ __('An error ocurred with some of your bookings') }}:</h3>
-            @php
-                $date = explode('-', $failed[0]);
-                $date = array_reverse($date);
-            @endphp
-            <h5>{{ __('Date') }}: {{ $date[0] . '-' . $date[1] . '-' . $date[2] }}</h5>
-            @for ($i = 0; $i < count($failed); $i = $i + 3)
-                <p>{{ __('Pitch') }} {{ $failed[$i + 1] }}, {{ __('hour') }} {{ $failed[$i + 2] }}:00</p>
-            @endfor
-            <p>{{ __('Selected hours not valid') }}.</p>
+            @if (empty($failed))
+                <h3>{{ __('Your booking has been submitted correctly') }}.</h3>
+            @else
+                <h3>{{ __('An error ocurred with some of your bookings') }}:</h3>
+                @php
+                    $date = explode('-', $failed[0]);
+                    $date = array_reverse($date);
+                @endphp
+                <h5>{{ __('Date') }}: {{ $date[0] . '-' . $date[1] . '-' . $date[2] }}</h5>
+                @for ($i = 0; $i < count($failed); $i = $i + 3)
+                    <p>{{ __('Pitch') }} {{ $failed[$i + 1] }}, {{ __('hour') }} {{ $failed[$i + 2] }}:00</p>
+                @endfor
+                <p>{{ __('Selected hours not valid') }}.</p>
+            @endif
         @endif
         @auth
             <p>{{ __('You can check your bookings on') }} <a href="{{ route('dashboard') }}">{{ __('Bookings') }}</a>

@@ -40,7 +40,7 @@
                         $currentDateDay = date('d');
                         $currentHour = date('h');
                         foreach ($bookings as $key => $value) {
-                            if ($value->hour <= $currentHour) {
+                            if ($value->hour <= $currentHour && $value->date == date('Y-m-d')) {
                                 unset($bookings[$key]);
                             }
                         }

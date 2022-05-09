@@ -27,7 +27,7 @@
                 @foreach ($products as $product)
                     <div class="col-4">
                         <div class="card text-center" style="width: 18rem;">
-                            <img src={{ url('/images/' . $product->url . '.jpg') }} class="card-img-center"
+                            <img src={{ url('/images/shop/' . $product->url . '.jpg') }} class="card-img-center"
                                 alt="{{ $product->url }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ __($product->name) }}</h5>

@@ -45,10 +45,10 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="langList">
                         <li><a class="dropdown-item" href="{{ url('locale/en') }}"><img
-                                    src=" {{ url('/images/gb.svg') }}" alt="" style="max-height: 10px "> {{ __('English')}}</a>
+                                    src=" {{ url('/images/lang/gb.svg') }}" alt="" style="max-height: 10px "> {{ __('English')}}</a>
                         </li>
                         <li><a class="dropdown-item" href="{{ url('locale/es') }}"><img
-                                    src=" {{ url('/images/es.svg') }}" alt="" style="max-height: 10px "> {{ __('Spanish')}}</a>
+                                    src=" {{ url('/images/lang/es.svg') }}" alt="" style="max-height: 10px "> {{ __('Spanish')}}</a>
                         </li>
                     </ul>
                 </div>

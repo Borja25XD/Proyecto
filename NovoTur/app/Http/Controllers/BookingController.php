@@ -53,6 +53,18 @@ class BookingController extends Controller
         $failedBookings = [];
         $bookingData = [];
         $currentHour = date("h");
+        $currentActiveBookings = DB::table('bookings')->where([
+            ['date', '>=', $currentDate],
+            ['owner_email', '=', $request->owner_email]
+        ])->count();
+
+        $maxActiveBookings = false;
+
+        if ($currentActiveBookings == 10) {
+            $maxActiveBookings = true;
+            return (view('booking_confirmed')->with(["failed" => $failedBookings ,"max" => $maxActiveBookings]));
+        }
+
 
         foreach ($request->pitches as $key => $pitch) {
             $hours = explode(",", $pitch);
@@ -63,31 +75,41 @@ class BookingController extends Controller
                         ['hour', '=', $hour],
                         ['pitch_id', '=', $key]
                     ])->doesntExist()) {
-                        if ($currentDate <= $request->date && $currentHour < $hour) {
-                            array_push($bookingData, $request->date);
-                            array_push($bookingData, $key);
-                            array_push($bookingData, $hour);
-                            Bookings::insert(
-                                [
-                                    'pitch_id' => $key,
-                                    'date' => $request->date,
-                                    'hour' => $hour,
-                                    'owner_name' => $request->owner_name,
-                                    'owner_email' => $request->owner_email
-                                ]
-                            );
-                        } else {
+                        if ($currentDate == $request->date && $currentHour >= $hour) {
                             array_push($failedBookings, $request->date);
                             array_push($failedBookings, $key);
                             array_push($failedBookings, $hour);
+                        } else {
+                            if ($currentActiveBookings == 10) {
+                                $maxActiveBookings = true;
+                                array_push($failedBookings, $request->date);
+                                array_push($failedBookings, $key);
+                                array_push($failedBookings, $hour);
+                            } else {
+                                array_push($bookingData, $request->date);
+                                array_push($bookingData, $key);
+                                array_push($bookingData, $hour);
+                                Bookings::insert(
+                                    [
+                                        'pitch_id' => $key,
+                                        'date' => $request->date,
+                                        'hour' => $hour,
+                                        'owner_name' => $request->owner_name,
+                                        'owner_email' => $request->owner_email
+                                    ]
+                                );
+                                $currentActiveBookings++;
+                            }
                         }
                     }
                 }
             }
         };
-        Mail::to($request->owner_email)->queue(new BookingsConfirmed($bookingData));
 
-        return (view('booking_confirmed')->with(["failed" => $failedBookings]));
+        if (!empty($bookingData)) {
+            Mail::to($request->owner_email)->queue(new BookingsConfirmed($bookingData));
+        }
+        return (view('booking_confirmed')->with(["failed" => $failedBookings, "max" => $maxActiveBookings]));
     }
 
     /**
