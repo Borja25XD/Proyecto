@@ -53,8 +53,24 @@
                     </ul>
                 </div>
             </li>
+            <li class="nav-item my-2 button-cart">
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle bg-info" href="#" role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src=" {{ url('/images/shopping-cart.png') }}" alt="shopping-cart" style="max-height: 18px;">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="langList">
+                        <li><a class="dropdown-item" href="{{ url('locale/en') }}"><img
+                                    src=" {{ url('/images/lang/gb.svg') }}" alt="" style="max-height: 10px "> {{ __('English')}}</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{{ url('locale/es') }}"><img
+                                    src=" {{ url('/images/lang/es.svg') }}" alt="" style="max-height: 10px "> {{ __('Spanish')}}</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{{ route('cart') }}">{{ __('View all cart') }}</a></li>
+                    </ul>
+                </div>
+            </li>
         </ul>
-    </div>
     </div>
 </nav>
 

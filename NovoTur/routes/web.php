@@ -50,7 +50,9 @@ Route::get('locale/{locale}', function ($locale) {
 
 Route::view('cookies', 'cookies')->name('cookies');
 
-Route::view('cuenta', "account_dashboard")->name('dashboard');
+Route::view('cuenta', 'account_dashboard')->name('dashboard');
+
+Route::view('pedido', 'cart')->name('cart');
 
 Route::get('product/{id}', ProductsController::class.'@show')->name('product');
 
