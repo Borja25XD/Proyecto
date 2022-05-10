@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    <div class="container bg-light rounded my-4 p-3">
+    <div id="bookingBox" class="container bg-light rounded my-4 p-3">
         <h1>{{ __('Book your padbol pitch') }}</h1>
         <img  class="mx-2" id="pitchImg" src="{{ url('/images/pitch.jpg') }}" alt="">
         @if (!isset($_GET['bookingDate']) || empty($_GET['bookingDate']))

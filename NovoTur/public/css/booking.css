@@ -3,11 +3,16 @@
     border: 1px solid black;
 }
 
-#pitchImg{
-    min-width: 200px; 
-    border-radius:0.5rem;
+#pitchImg {
+    min-width: 200px;
+    border-radius: 0.5rem;
 }
 
 .pitchLabel {
     margin-top: 2rem;
+}
+
+#bookingBox {
+    -webkit-box-shadow: -1px 0px 18px -4px #000000;
+    box-shadow: -1px 0px 18px -4px #000000;
 }

@@ -14,7 +14,7 @@
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
-        <div class="carousel-inner">
+        <div id="carouselBox" class="carousel-inner rounded">
           <div class="carousel-item active">
             <img class="d-block w-100" src="{{ url('/images/camiseta-artengo-nino.jpg') }}" alt="First slide">
             <div class="carousel-caption d-none d-md-block">

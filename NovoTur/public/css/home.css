@@ -4,9 +4,19 @@
 }
 
 .carousel-control-prev-icon{
-    color: black;
+    background-color: black !important;
+    padding: 2px;
+}
+
+.carousel-control-next-icon{
+    background-color: black !important;
 }
 
 .carousel-caption{
     color: black;
+}
+
+#carouselBox {
+    -webkit-box-shadow: -1px 0px 18px -4px #000000;
+    box-shadow: -1px 0px 18px -4px #000000;
 }

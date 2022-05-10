@@ -50,7 +50,7 @@ Route::get('locale/{locale}', function ($locale) {
 
 Route::view('cookies', 'cookies')->name('cookies');
 
-Route::view('cuenta', 'account_dashboard')->name('dashboard');
+Route::view('cuenta', 'account_dashboard')->name('dashboard')->middleware('auth');
 
 Route::view('pedido', 'cart')->name('cart');
 

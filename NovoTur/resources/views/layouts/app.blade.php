@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/ico" href="./favicon.ico"/>
-    
+    <link rel="icon" type="image/ico" href="./favicon.ico" />
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -22,7 +22,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href={{ url('/css/style.css') }}>
 
-    <!-- Favicon --> 
+    <!-- Favicon -->
     <link rel="icon" type="image/ico" href={{ url('/favicon.ico') }} />
 
 </head>
@@ -31,13 +31,17 @@
     <div id="app">
         @include('nav')
         <main class="py-4">
-            @yield('content')
+            <div id="page">
+                @yield('content')
+            </div>
         </main>
     </div>
     <footer>
         @include('footer')
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

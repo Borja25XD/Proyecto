@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="container bg-white  p-3 my-5">
+    <div class="container bg-white p-3 my-5">
         @if ($max == true)
             <h3>{{ __('You have reached maximun active bookings') }}</h3>
             @if (!empty($failed))
