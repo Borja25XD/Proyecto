@@ -9,13 +9,17 @@
 @section('content')
     <div class="card text-center">
         <div class="card-header">
-            {{ __($product->category) }}
+            {{ __($item->category) }}
         </div>
         <div class="card-body">
-            <img src={{ url('/images/shop/' . $product->url . '.jpg') }} class="card-img-center" alt="{{ $product->url }}">
-            <h5 class="card-title">{{ __($product->name) }}</h5>
-            <p class="card-text">{{ __($product->description) }}</p>
-            <a href="#" class="btn btn-primary">{{__('Add to cart')}}</a>
+            <img src={{ url('/images/shop/' . $item->url . '.jpg') }} class="card-img-center" alt="{{ $item->url }}">
+            <h5 class="card-title">{{ __($item->name) }} ( <b>{{__($item->price)}} € </b>)</h5>
+            <p class="card-text">{{ __($item->description) }}</p>
+            <form action="{{route('cart.add')}}" method="post">
+                @csrf
+                <input type="hidden" name="product_id" value="{{$item->id}}">
+                <input type="submit" name="btn"  class="btn btn-primary" value="{{__('Add to cart')}}">
+            </form>
         </div>
         <div class="card-footer text-muted">
             <a href="../tienda">{{__('Back to shop')}}</a>

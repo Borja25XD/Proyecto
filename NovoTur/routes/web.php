@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\BookProcessController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\CartController;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
@@ -45,6 +46,14 @@ Route::get('locale/{locale}', function ($locale) {
 });
 
 //Route::resource('reservas', BookingController::class)->names(["index" => "booking", "store" => "algo"]);
+
+Route::post('/cart-add', CartController::class.'@add')->name('cart.add');
+
+Route::get('/cart-checkout', CartController::class.'@cart')->name('cart.checkout');
+
+Route::post('/cart-clear', CartController::class.'@clear')->name('cart.clear');
+
+Route::post('/cart-removeitem', CartController::class.'@removeitem')->name('cart.removeitem');
 
 //Route::post('reservas', 'App\Http\Controllers\BookingController@' . 'store')->name("reservas.store");
 

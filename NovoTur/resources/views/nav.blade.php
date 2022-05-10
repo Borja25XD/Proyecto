@@ -65,7 +65,7 @@
                     </a>
                     <ul class="dropdown-menu shopping-cart" aria-labelledby="dropdownMenuLink" id="langList">
             </li>
-            <li><a class="dropdown-item" href="{{ route('cart') }}">{{ __('View all cart') }}</a></li>
+            <li><a class="dropdown-item" href="{{ route('cart.checkout') }}">{{ __('View all cart') }}</a></li>
         </ul>
     </div>
     </li>

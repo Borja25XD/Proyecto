@@ -14,7 +14,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Products::get();
+        $products = Products::all();
         return view('shop')->with(["products" => $products]);
     }
 
@@ -47,7 +47,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        return view('product', ['product'=>Products::findOrFail($id)]);
+        return view('product', ['item'=>Products::findOrFail($id)]);
     }
 
     /**
