@@ -843,5 +843,11 @@
     "Spanish": "Español",
     "Back to shop": "Volver a la tienda",
     "Add to cart": "Añadir al carrito", 
-    "Manage": "Gestionar"
+    "Manage": "Gestionar", 
+    "available": "disponible",
+    "unavailable": "no disponible", 
+    "Number": "Número", 
+    "Status": "Estado", 
+    "Pitches": "Canchas", 
+    "Manage status": "Administrar estado"
 }
