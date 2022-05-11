@@ -4,6 +4,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\BookProcessController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PitchesController;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
@@ -40,9 +41,12 @@ Route::controller(BookingController::class)->group(function () {
 Route::view('reservaconfirmada', 'booking_confirmed')->name('booking_confirmed');
 
 Route::get('locale/{locale}', function ($locale) {
-    //App::setLocale($locale);
     session()->put('locale', $locale);
     return redirect()->back();
+});
+
+Route::controller((PitchesController::class))->gropup(function () {
+    Route::post("editdisp", "edit")->name(("editdisp"));
 });
 
 //Route::resource('reservas', BookingController::class)->names(["index" => "booking", "store" => "algo"]);

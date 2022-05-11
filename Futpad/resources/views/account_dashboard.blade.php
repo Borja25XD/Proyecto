@@ -114,18 +114,21 @@
                                             <td>{{ $pitch->id }}</td>
                                             <td>{{ __($pitch->status) }}</td>
                                             <td>
+                                                @if($pitch->status == 'available')
                                                 <form method="POST" action="">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="hidden" name="date" value="{{ $pitch->id }}">
                                                     <input type="hidden" name="date" value="{{ $pitch->status }}">                                                                                                        
-                                                    <input type="submit" class="btn btn-danger" value="X">
+                                                    <input type="submit" class="btn btn-danger" value="{{ __('No available') }}">
                                                 </form>
+                                                @else
                                                 <form method="POST" action="">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="hidden" name="date" value="{{ $pitch->id }}">
                                                     <input type="hidden" name="date" value="{{ $pitch->status }}">                                                                                                        
-                                                    <input type="submit" class="btn btn-danger" value="V">
+                                                    <input type="submit" class="btn btn-success" value="{{ __('Available') }}">
                                                 </form>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

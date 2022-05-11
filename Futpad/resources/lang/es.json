@@ -849,5 +849,7 @@
     "Number": "Número", 
     "Status": "Estado", 
     "Pitches": "Canchas", 
-    "Manage status": "Administrar estado"
+    "Manage status": "Administrar estado", 
+    "No available": "No disponible",
+    "Available": "Disponible"
 }

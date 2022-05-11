@@ -16,21 +16,21 @@
       </div>
         <div id="carouselBox" class="carousel-inner rounded">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="{{ url('/images/camiseta-artengo-nino.jpg') }}" alt="First slide">
+            <img class="d-block w-100" src="{{ url('/images/shop/camiseta-artengo-nino.jpg') }}" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
               <h5>Sudadera Artengo, 9'99€</h5>
               <p>Aquí se puede poner enlace a la tienda</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ url('/images/gorra-adidas.jpg') }}" alt="Second slide">
+            <img class="d-block w-100" src="{{ url('/images/shop/gorra-adidas.jpg') }}" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
               <h5>Imagen de prueba pero se puede poner algo sobre las pistas</h5>
               <p>Aquí se puede poner enlace a reservas</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ url('/images/paletero-bullpadel.jpg') }}" alt="Third slide">
+            <img class="d-block w-100" src="{{ url('/images/shop/paletero-bullpadel.jpg') }}" alt="Third slide">
             <div class="carousel-caption d-none d-md-block">
               <h5>Paletero 11€</h5>
               <p>No dejes escapar la promocion</p>
