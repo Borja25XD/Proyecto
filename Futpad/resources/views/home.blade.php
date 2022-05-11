@@ -16,24 +16,23 @@
       </div>
         <div id="carouselBox" class="carousel-inner rounded">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="{{ url('/images/shop/camiseta-artengo-nino.jpg') }}" alt="First slide">
+            <img class="d-block w-100" src="{{ url('/images/pitch2.jpg') }}" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Sudadera Artengo, 9'99€</h5>
-              <p>Aquí se puede poner enlace a la tienda</p>
+              <h3 style="color:red">¡<a href="{{route('booking')}}" style="color:red">RESERVA</a> YA TU PISTA DE PÁDEL!</h3>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ url('/images/shop/gorra-adidas.jpg') }}" alt="Second slide">
+            <img class="d-block w-100" src="{{ url('/images/shop/camiseta-artengo-nino.jpg') }}" alt="Second slide" style="height:730px; width:700px">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Imagen de prueba pero se puede poner algo sobre las pistas</h5>
-              <p>Aquí se puede poner enlace a reservas</p>
+              <h5 style="color:white">Camiseta Artengo</h5>
+              <p>Ideal para estás épocas de frío, manteniendo la comodidad</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ url('/images/shop/paletero-bullpadel.jpg') }}" alt="Third slide">
+            <img class="d-block w-100" src="{{ url('/images/shop/paletero-bullpadel.jpg') }}" alt="Third slide" style="height:730px; width:700px">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Paletero 11€</h5>
-              <p>No dejes escapar la promocion</p>
+              <h5><a href="{{route('product', 26)}}">{{__('Padle bat bag')}} 11€</a></h5>
+              <p>{{__('Buy now the best products at the best price')}}</p>
             </div>
           </div>
         </div>

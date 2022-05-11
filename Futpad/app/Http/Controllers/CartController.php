@@ -14,12 +14,12 @@ class CartController extends Controller
 
         Cart::add(
             $item->id,
-            $item->nombre,
-            $item->precio,
+            $item->name,
+            $item->price,
             1
             
         );
-        return back()->with('success',"$item->nombre ¡se ha agregado con éxito al carrito!");
+        return back()->with('success',"$item->name ¡se ha agregado con éxito al carrito!");
    
     }
 

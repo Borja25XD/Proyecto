@@ -851,5 +851,15 @@
     "Pitches": "Canchas", 
     "Manage status": "Administrar estado", 
     "No available": "No disponible",
-    "Available": "Disponible"
+    "Available": "Disponible",
+    "ID": "ID",
+    "NAME": "NOMBRE",
+    "QUANTITY": "CANTIDAD",
+    "View all cart": "Ver todo el carrito",
+    "PRICE": "PRECIO",
+    "TOTAL PRICE": "PRECIO TOTAL",
+    "Empty shopping cart": "Carrito de compra vacío",
+    "Buy products": "Comprar productos",
+    "Buy now the best products at the best price": "Compra ahora los mejores productos al mejor precio",
+    "Padle bat bag": "Paletero"
 }

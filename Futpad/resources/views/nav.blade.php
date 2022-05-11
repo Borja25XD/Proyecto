@@ -62,10 +62,13 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <img src=" {{ url('/images/shopping-cart.png') }}" alt="shopping-cart"
                             style="max-height: 18px;">
+                        <span> ({{Cart::getContent()->count()}})</span>
                     </a>
                     <ul class="dropdown-menu shopping-cart" aria-labelledby="dropdownMenuLink" id="langList">
             </li>
-            <li><a class="dropdown-item" href="{{ route('cart.checkout') }}">{{ __('View all cart') }}</a></li>
+            @if(Cart::getContent())
+            <li><a class="dropdown-item" href="{{ route('cart.checkout') }}">{{ __('View all cart') }}<span> ({{Cart::getContent()->count()}})</span></a></li>
+            @endif
         </ul>
     </div>
     </li>
