@@ -1,0 +1,66 @@
+table{
+    text-align: center;
+    margin-top: 40px;
+    background-color: white;
+}
+
+.item-img{
+    width: 50px;
+    height: 50px;
+}
+
+.buy-button{
+    color: white;
+    background-color: blue;
+    border-radius: 2em;
+    border: 1px solid blue;
+    padding: 10px;
+    width:300px; 
+    margin: -20px -120px; 
+    position:relative;
+    top:20%; 
+    left:50%;
+}
+.buy-button:hover{
+    background-color: darkblue;
+    color: yellow;
+}
+
+thead{
+    background-color: black;
+}
+
+th{
+    color: white;
+}
+
+tbody > tr:hover{
+    background-color: lightgreen;
+}
+
+tfoot{
+    background-color: black;
+}
+
+.total{
+    padding-right: 50px;
+}
+
+.title-cart{
+    margin: 0 -150px;
+    left:50%;
+    position: relative;
+    font-size: 48px;
+    color: blue;
+}
+
+.description-cart{
+    font-weight: bold;
+}
+
+.empty-cart{
+    font-size: 32px;
+    background-color: aliceblue;
+    padding: 5px;
+    border-radius: 5px;
+}

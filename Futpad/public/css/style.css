@@ -68,6 +68,8 @@ footer > .row {
     margin-left: 10px;
 }
 
+
+
 @media screen and (max-width: 900px) and (min-width: 756px) {
     .customLink {
         padding-left: 0px;

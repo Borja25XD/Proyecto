@@ -1,6 +1,7 @@
 .card{
     margin:20px;
     border-radius: 20px;
+    height: 560px;
 }
 
 .card-title{
@@ -20,10 +21,35 @@ footer {
     margin-top: 1.5rem;
 }
 
+.shop-cart{
+    margin-top: 10px;
+}
+
+path{
+    display: none;
+}
+
+svg{
+    display: none;
+}
+
 .nav-item-p{
     color: white;
     text-decoration: none;
     font-weight: bold;
+}
+
+.shop{
+    color:blue;
+    position: relative;
+    margin: 20px -120px 50px 0;
+    left: 40%;
+    text-decoration: underline;
+    transition: color 2s;
+}
+
+.shop:hover{
+    color: darkgreen;
 }
 
 .nav-item-p:hover{
@@ -47,4 +73,18 @@ footer {
     border-radius: 15px;
     width: calc(100% - 35px);
     padding-left: 35px;
+}
+
+.text-sm{
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+.flex{
+    margin-top: 20px;
+    padding-left: 15px;
+}
+
+span.relative{
+    display: none;
 }

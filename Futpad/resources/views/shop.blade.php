@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Página de la tienda</h1>
+        <h1 class="shop">{{__('Futpad Online Shop')}}</h1>
         <div class="row">
             <div class="col-3">
                 <div class="products-nav">
@@ -35,11 +35,18 @@
                                 <p class="card-text">{{ __($item->category) }}</p>
                                 <p class="card-brand">{{ __($item->brand) }}</p>
                                 <a href="{{ route('product', $item->id) }}" class="btn btn-primary">{{ __('Show more') }}</a>
+                                <form action="{{route('cart.add')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{$item->id}}">
+                                    <input type="submit" name="btn"  class="btn btn-primary shop-cart" value="{{__('Add to cart')}}">
+                                </form>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
+            <div class="d-flex justify-content-center">{!! $products->links() !!}</div>
         </div>
     </div>
+    
 @endsection
