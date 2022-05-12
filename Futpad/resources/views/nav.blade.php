@@ -16,18 +16,17 @@
                 </a>
             </li>
             @guest
-                <li class="nav-item col-lg-1 col-md-1 text-center "><a class="nav-link customLink {{ setActive('register') }}"
+                <li class="nav-item col-lg-1  text-center "><a class="nav-link customLink {{ setActive('register') }}"
                         href={{ route('register') }}>{{ __('Register') }}</a>
                 </li>
-                <li
-                    class="nav-item  mx-md-3 col-lg-1 col-md-2 offset-md-0 offset-lg-0 text-center d-inline-block text-nowrap">
-                    <a class="nav-link {{ setActive('login') }}" href={{ route('login') }}>
+                <li class="nav-item col-lg-1 col-md-1 offset-md-0 offset-lg-0 text-center d-inline-block text-nowrap ">
+                    <a class="nav-link customLink {{ setActive('login') }}" href={{ route('login') }}>
                         {{ __('Login') }}
                     </a>
                 </li>
             @else
                 @if (auth()->user()->type == 'admin')
-                    <li class="nav-item col-1 text-center"><a class="nav-link"
+                    <li class="nav-item  text-center"><a class="nav-link"
                             href={{ route('dashboard') }}>{{ __('Manage') }}</a>
                     </li>
                 @else
