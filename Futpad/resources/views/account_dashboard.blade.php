@@ -17,9 +17,11 @@
                     <button class="nav-link @if (isset($bookings)) @php echo "active" @endphp @endif"
                         id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="buttn" role="tab"
                         aria-controls="v-pills-profile" aria-selected="false"> {{ __('Bookings') }}</button>
-                    <button class="nav-link @if (isset($bookings)) @php echo "active" @endphp @endif"
-                        id="v-pills-pitches-tab" data-bs-toggle="pill" data-bs-target="#v-pills-pitches" type="buttn" role="tab"
-                        aria-controls="v-pills-pitches" aria-selected="false"> {{ __('Pitches') }}</button>
+                    @if (auth()->user()->type == 'admin')
+                        <button class="nav-link @if (isset($bookings)) @php echo "active" @endphp @endif"
+                            id="v-pills-pitches-tab" data-bs-toggle="pill" data-bs-target="#v-pills-pitches" type="buttn"
+                            role="tab" aria-controls="v-pills-pitches" aria-selected="false"> {{ __('Pitches') }}</button>
+                    @endif
                 </div>
                 <div class="tab-content col-10" id="v-pills-tabContent">
                     <div class="tab-pane fade  @if (!isset($bookings)) @php echo "show active" @endphp @endif bg-white"
@@ -109,53 +111,55 @@
                             @endif
                         </div>
                     </div>
-                    <div class="tab-pane fade bg-white p-3" id="v-pills-pitches" role="tabpanel"
-                        aria-labelledby="v-pills-pitches-tab">
-                        <div class="container col-12">
-                            <h4>{{ __('Manage status') }}:</h4>
-                            <?php
-                            $pitches = DB::select(DB::raw('SELECT * FROM  pitches '));
-                            ?>
-                            <table class="table table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>{{ __('Number') }}</th>
-                                        <th>{{ __('Status') }}</th>
-                                        <th>{{ __('Options') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($pitches as $key => $pitch)
+                    @if (auth()->user()->type == 'admin')
+                        <div class="tab-pane fade bg-white p-3" id="v-pills-pitches" role="tabpanel"
+                            aria-labelledby="v-pills-pitches-tab">
+                            <div class="container col-12">
+                                <h4>{{ __('Manage status') }}:</h4>
+                                <?php
+                                $pitches = DB::select(DB::raw('SELECT * FROM  pitches '));
+                                ?>
+                                <table class="table table-striped table-hover">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $pitch->id }}</td>
-                                            <td>{{ __($pitch->status) }}</td>
-                                            <td>
-                                                @if ($pitch->status == 'available')
-                                                    <form method="POST" action="{{ route('editdisp') }}">
-                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                        <input type="hidden" name="id" value="{{ $pitch->id }}">
-                                                        <input type="hidden" name="availability"
-                                                            value="{{ $pitch->status }}">
-                                                        <input type="submit" class="btn btn-danger"
-                                                            value="{{ __('No available') }}">
-                                                    </form>
-                                                @else
-                                                    <form method="POST" action="{{ route('editdisp') }}">
-                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                        <input type="hidden" name="id" value="{{ $pitch->id }}">
-                                                        <input type="hidden" name="availability"
-                                                            value="{{ $pitch->status }}">
-                                                        <input type="submit" class="btn btn-success"
-                                                            value="{{ __('Available') }}">
-                                                    </form>
-                                                @endif
-                                            </td>
+                                            <th>{{ __('Number') }}</th>
+                                            <th>{{ __('Status') }}</th>
+                                            <th>{{ __('Options') }}</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($pitches as $key => $pitch)
+                                            <tr>
+                                                <td>{{ $pitch->id }}</td>
+                                                <td>{{ __($pitch->status) }}</td>
+                                                <td>
+                                                    @if ($pitch->status == 'available')
+                                                        <form method="POST" action="{{ route('editdisp') }}">
+                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                            <input type="hidden" name="id" value="{{ $pitch->id }}">
+                                                            <input type="hidden" name="availability"
+                                                                value="{{ $pitch->status }}">
+                                                            <input type="submit" class="btn btn-danger"
+                                                                value="{{ __('No available') }}">
+                                                        </form>
+                                                    @else
+                                                        <form method="POST" action="{{ route('editdisp') }}">
+                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                            <input type="hidden" name="id" value="{{ $pitch->id }}">
+                                                            <input type="hidden" name="availability"
+                                                                value="{{ $pitch->status }}">
+                                                            <input type="submit" class="btn btn-success"
+                                                                value="{{ __('Available') }}">
+                                                        </form>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         @endauth

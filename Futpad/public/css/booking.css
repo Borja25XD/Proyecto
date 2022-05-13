@@ -6,6 +6,7 @@
 #pitchImg {
     min-width: 200px;
     border-radius: 0.5rem;
+    max-width: 300px;
 }
 
 .pitchLabel {

@@ -6,13 +6,13 @@
 @endsection
 
 @section('js')
-    <script src={{ url('/js/index.js?v=') . time() }} defer></script>
+    <script src={{ asset('/js/index.js?v=') . time() }} defer></script>
 @endsection
 
 @section('content')
     <div id="bookingBox" class="container bg-light rounded my-4  p-3">
         <h1>{{ __('Book your padbol pitch') }}</h1>
-        <img class="mx-2" id="pitchImg" src="{{ url('/images/pitch.jpg') }}" alt="">
+        <img class="mx-2" id="pitchImg" src="{{ url('/images/pitch2.jpg') }}" alt="">
         @if (!isset($_GET['bookingDate']) || empty($_GET['bookingDate']))
             <label for="bookingDate" class="d-block m-2">{{ __('Select a date') }}:</label>
             <form class="mx-2">

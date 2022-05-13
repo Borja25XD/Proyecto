@@ -10,7 +10,7 @@ body {
         rgba(255, 255, 255, 1) 18%,
         rgba(141, 198, 61, 1) 100%
     );
-    width: auto !important;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 nav a {
