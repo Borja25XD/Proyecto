@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container bg-light rounded my-4  p-3">
         <div class="row">
             <div class="col-sm-12">
                 <h1 class="title-cart">{{ __('Shopping cart') }}</h1>
@@ -55,7 +55,7 @@
                     </table>
                     <button class="buy-button">{{ __('Buy products') }}: <?php echo $total; ?> &euro;</button>
                 @else
-                    <span class="empty-cart">{{ __('Empty shopping cart') }}</span>
+                    <p class="empty-cart">{{ __('Empty shopping cart') }}</p>
                 @endif
 
             </div>

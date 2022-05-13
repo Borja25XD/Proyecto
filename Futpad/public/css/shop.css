@@ -39,16 +39,14 @@ svg{
     font-weight: bold;
 }
 
-.shop{
+.shop-title{
     color:blue;
-    position: relative;
-    margin: 20px -120px 50px 0;
-    left: 40%;
-    text-decoration: underline;
+    text-align: center;
     transition: color 2s;
+    font-weight: bold;
 }
 
-.shop:hover{
+.shop-title:hover{
     color: darkgreen;
 }
 
@@ -86,5 +84,18 @@ svg{
 }
 
 span.relative{
+    display: none;
+}
+
+.container{
+    -webkit-box-shadow: -1px 0px 18px -4px #000000;
+    box-shadow: -1px 0px 18px -4px #000000;
+}
+
+.show{
+    display: block;
+}
+
+.hidden{
     display: none;
 }

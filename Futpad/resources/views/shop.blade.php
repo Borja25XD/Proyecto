@@ -7,32 +7,32 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <h1 class="shop">{{__('Futpad Online Shop')}}</h1>
+    <div class="container bg-light rounded my-4  p-3">
+        <h1 class="shop-title">{{__('Futpad Online Shop')}}</h1>
         <div class="row">
             <div class="col-3">
                 <div class="products-nav">
                     <ul>
-                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('All') }}</a></li>
-                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Accesories') }}</a></li>
-                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Balls') }}</a></li>
-                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Clothes') }}</a></li>
-                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Padelbat') }}</a></li>
-                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Padelbatbag') }}</a></li>
-                        <li class="products-nav-item"><a class="nav-item-p" href="">{{ __('Sportshoes') }}</a></li>
+                        <li class="products-nav-item li-all"><a class="nav-item-p">{{ __('All') }}</a></li>
+                        <li class="products-nav-item li-accesories"><a class="nav-item-p">{{ __('Accesories') }}</a></li>
+                        <li class="products-nav-item li-balls"><a class="nav-item-p">{{ __('Balls') }}</a></li>
+                        <li class="products-nav-item li-clothes"><a class="nav-item-p">{{ __('Clothes') }}</a></li>
+                        <li class="products-nav-item li-padelbat"><a class="nav-item-p">{{ __('Padelbat') }}</a></li>
+                        <li class="products-nav-item li-padelbatbag"><a class="nav-item-p">{{ __('Padelbatbag') }}</a></li>
+                        <li class="products-nav-item li-sportshoes"><a class="nav-item-p">{{ __('Sportshoes') }}</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-9">
                 <div class="row">
                 @foreach ($products as $item)
-                    <div class="col-4">
+                    <div class="col-4 item-card {{$item->category}} show">
                         <div class="card text-center" style="width: 18rem;">
                             <img src={{ url('/images/shop/' . $item->url . '.jpg') }} class="card-img-center"
                                 alt="{{ $item->url }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ __($item->name) }}</h5>
-                                <p class="card-text">{{ __($item->category) }}</p>
+                                <h6 class="card-text">{{ __($item->category) }}</h6>
                                 <p class="card-brand">{{ __($item->brand) }}</p>
                                 <a href="{{ route('product', $item->id) }}" class="btn btn-primary">{{ __('Show more') }}</a>
                                 <form action="{{route('cart.add')}}" method="post">
@@ -48,5 +48,5 @@
             <div class="d-flex justify-content-center">{!! $products->links() !!}</div>
         </div>
     </div>
-    
+    <script src="../public/js/shop.js" defer></script>
 @endsection

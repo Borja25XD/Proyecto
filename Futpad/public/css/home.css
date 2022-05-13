@@ -17,6 +17,37 @@
 }
 
 #carouselBox {
-    -webkit-box-shadow: -1px 0px 18px -4px #000000;
-    box-shadow: -1px 0px 18px -4px #000000;
+    /* -webkit-box-shadow: -1px 0px 18px -4px #000000;
+    box-shadow: -1px 0px 18px -4px #000000; */
+}
+
+
+.pitch-link{
+    border-radius: 5px;
+    background-color: #8dc63d;
+    padding: 15px;
+}
+
+.pitch-link > a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.home-title{
+    text-align: center;
+    color: darkgreen;
+}
+
+.shop-link{
+    border-radius: 5px;
+    background-color: #8dc63d;
+    padding: 15px;
+    margin-bottom: -10px;
+}
+
+.shop-link > a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }

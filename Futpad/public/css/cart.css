@@ -47,9 +47,7 @@ tfoot{
 }
 
 .title-cart{
-    margin: 0 -150px;
-    left:50%;
-    position: relative;
+    text-align: center;
     font-size: 48px;
     color: blue;
 }
@@ -63,4 +61,5 @@ tfoot{
     background-color: aliceblue;
     padding: 5px;
     border-radius: 5px;
+    text-align: center;
 }
