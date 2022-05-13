@@ -8,37 +8,38 @@ use Cart;
 
 class CartController extends Controller
 {
-    
-    public function add(Request $request){
-        $item = Products::find($request->product_id);
 
+    public function add(Request $request)
+    {
+        $item = Products::find($request->product_id);
+        //sreturn $item->url;
         Cart::add(
             $item->id,
             $item->name,
             $item->price,
-            1
-            
+            1,
         );
-        return back()->with('success',"$item->name ¡se ha agregado con éxito al carrito!");
-   
+        return back()->with('success', "$item->name ¡se ha agregado con éxito al carrito!");
     }
 
-    public function cart(){
-        
+    public function cart()
+    {
+
         return view('cart');
     }
 
-    public function removeitem(Request $request) {
+    public function removeitem(Request $request)
+    {
         //$producto = Producto::where('id', $request->id)->firstOrFail();
         Cart::remove([
-        'id' => $request->id,
+            'id' => $request->id,
         ]);
-        return back()->with('success',"Producto eliminado con éxito de su carrito.");
+        return back()->with('success', "Producto eliminado con éxito de su carrito.");
     }
 
-    public function clear(){
+    public function clear()
+    {
         Cart::clear();
-        return back()->with('success',"The shopping cart has successfully beed added to the shopping cart!");
+        return back()->with('success', "The shopping cart has successfully beed added to the shopping cart!");
     }
-
 }

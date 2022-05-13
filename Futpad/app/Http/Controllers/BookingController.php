@@ -165,6 +165,6 @@ class BookingController extends Controller
         if ($query->exists()) {
             $query->delete();
         }
-        return (view('account_dashboard')->with(["bookings" => 1]));
+        return (redirect("/cuenta"));
     }
 }

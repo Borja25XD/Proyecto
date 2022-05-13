@@ -35,24 +35,40 @@
                     </div>
                     <div class="tab-pane fade bg-white @if (isset($bookings)) @php echo "show active" @endphp @endif"
                         id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-
-                        <?php
-                        $bookings = DB::select(DB::raw('SELECT * FROM  bookings WHERE owner_email = :variable AND date >= :date ORDER BY date,hour'), ['variable' => auth()->user()->email, 'date' => date('Y-m-d')]);
-                        $currentDateYear = date('Y');
-                        $currentDateMonth = date('m');
-                        $currentDateDay = date('d');
-                        $currentHour = date('h');
-                        foreach ($bookings as $key => $value) {
-                            if ($value->hour <= $currentHour && $value->date == date('Y-m-d')) {
-                                unset($bookings[$key]);
+                        @php
+                            $bookings = DB::select(DB::raw('SELECT * FROM  bookings WHERE owner_email = :variable AND date >= :date ORDER BY date,hour'), ['variable' => auth()->user()->email, 'date' => date('Y-m-d')]);
+                            $unavailablePitches = DB::select(DB::raw('SELECT id FROM pitches WHERE status = "unavailable"'));
+                            $currentDateYear = date('Y');
+                            $currentDateMonth = date('m');
+                            $currentDateDay = date('d');
+                            $currentHour = date('h');
+                            $cancelMessage = 0;
+                            foreach ($bookings as $key => $value) {
+                                if ($value->hour <= $currentHour && $value->date == date('Y-m-d')) {
+                                    unset($bookings[$key]);
+                                }
+                                foreach ($unavailablePitches as $keyP => $pitch) {
+                                    if ($pitch->id == $value->pitch_id) {
+                                        unset($bookings[$key]);
+                                        $cancelMessage = 1;
+                                    }
+                                }
                             }
-                        }
-                        ?>
+                        @endphp
                         <div class="container col-12">
                             <h4>{{ __('Active bookings') }}:</h4>
                             @if (empty($bookings))
                                 <div class="row px-3">
-                                    <div class="col-12 p-3">{{ __('No active bookings') }}</div>
+                                    <div class="col-12 p-3">
+                                        <p>{{ __('No active bookings') }}.</p>
+                                        @if ($cancelMessage)
+                                            <p>
+                                                {{ __('We are sorry, some of your bookings were canceled due to changes on the pitches availability, you can contact us') }}
+                                                <a href="{{ route('contact') }}">{{ __('here') }}</a>
+                                                {{ __('for more information') }}.
+                                            </p>
+                                        @endif
+                                    </div>
                                 </div>
                             @else
                                 <table class="table table-striped table-hover">
@@ -114,20 +130,24 @@
                                             <td>{{ $pitch->id }}</td>
                                             <td>{{ __($pitch->status) }}</td>
                                             <td>
-                                                @if($pitch->status == 'available')
-                                                <form method="POST" action="">
-                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <input type="hidden" name="date" value="{{ $pitch->id }}">
-                                                    <input type="hidden" name="date" value="{{ $pitch->status }}">                                                                                                        
-                                                    <input type="submit" class="btn btn-danger" value="{{ __('No available') }}">
-                                                </form>
+                                                @if ($pitch->status == 'available')
+                                                    <form method="POST" action="{{ route('editdisp') }}">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                        <input type="hidden" name="id" value="{{ $pitch->id }}">
+                                                        <input type="hidden" name="availability"
+                                                            value="{{ $pitch->status }}">
+                                                        <input type="submit" class="btn btn-danger"
+                                                            value="{{ __('No available') }}">
+                                                    </form>
                                                 @else
-                                                <form method="POST" action="">
-                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <input type="hidden" name="date" value="{{ $pitch->id }}">
-                                                    <input type="hidden" name="date" value="{{ $pitch->status }}">                                                                                                        
-                                                    <input type="submit" class="btn btn-success" value="{{ __('Available') }}">
-                                                </form>
+                                                    <form method="POST" action="{{ route('editdisp') }}">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                        <input type="hidden" name="id" value="{{ $pitch->id }}">
+                                                        <input type="hidden" name="availability"
+                                                            value="{{ $pitch->status }}">
+                                                        <input type="submit" class="btn btn-success"
+                                                            value="{{ __('Available') }}">
+                                                    </form>
                                                 @endif
                                             </td>
                                         </tr>

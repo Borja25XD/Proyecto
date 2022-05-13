@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pitches;
+use Illuminate\Support\Facades\DB;
 
 class PitchesController extends Controller
 {
@@ -54,9 +56,19 @@ class PitchesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        if ($request->availability == "available") {
+            $status = "unavailable";
+        }else {
+            $status = "available";
+        }
+
+        DB::table('pitches')->where([
+            ['id', '=', $request->id]
+        ])->update(['status' => $status]);
+        
+        return redirect("/cuenta");
     }
 
     /**

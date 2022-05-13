@@ -15,10 +15,16 @@
     border-top-left-radius: 0.4rem !important;
 }
 
-#v-pills-profile {
+#v-pills-profile,
+#v-pills-pitches {
     -webkit-box-shadow: -1px 0px 18px -4px #000000;
     box-shadow: -1px 0px 18px -4px #000000;
     border-top-left-radius: 0.4rem;
+}
+
+#v-pills-home {
+    -webkit-box-shadow: -1px 0px 18px -4px #000000;
+    box-shadow: -1px 0px 18px -4px #000000;
 }
 
 #v-pills-tabContent > div {

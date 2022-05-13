@@ -45,9 +45,9 @@ Route::get('locale/{locale}', function ($locale) {
     return redirect()->back();
 });
 
-// Route::controller((PitchesController::class))->gropup(function () {
-//     Route::post("editdisp", "edit")->name(("editdisp"));
-// });
+Route::controller((PitchesController::class))->group(function () {
+    Route::post("editdisp", "edit")->name(("editdisp"));
+});
 
 //Route::resource('reservas', BookingController::class)->names(["index" => "booking", "store" => "algo"]);
 

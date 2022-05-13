@@ -12,7 +12,7 @@
 @section('content')
     <div id="bookingBox" class="container bg-light rounded my-4  p-3">
         <h1>{{ __('Book your padbol pitch') }}</h1>
-        <img  class="mx-2" id="pitchImg" src="{{ url('/images/pitch.jpg') }}" alt="">
+        <img class="mx-2" id="pitchImg" src="{{ url('/images/pitch.jpg') }}" alt="">
         @if (!isset($_GET['bookingDate']) || empty($_GET['bookingDate']))
             <label for="bookingDate" class="d-block m-2">{{ __('Select a date') }}:</label>
             <form class="mx-2">
@@ -27,22 +27,26 @@
                     <input type="date" name="bookingDate" id="bookingDate" value="{{ $_GET['bookingDate'] }}">
                     <input type="submit" value="{{ __('Search') }}" class="btn btn-primary">
                 </form>
-                <?php
-                $bookings = DB::select(DB::raw('SELECT * FROM  bookings WHERE date = :variable'), ['variable' => $_GET['bookingDate']]);
-                ?>
+                @php
+                    $bookings = DB::select(DB::raw('SELECT * FROM  bookings WHERE date = :variable'), ['variable' => $_GET['bookingDate']]);
+                @endphp
                 @foreach ($pitches as $pitch)
                     @if ($pitch->status != 'unavailable')
                         <label class="d-block pitchLabel mx-3">{{ __('Pitch') }} {{ $pitch->id }}</label>
                         <div class="d-inline my-1 mx-3 col-12" id="Cancha{{ $pitch->id }}">
                             <label class="d-block m-2">{{ __('Morning') }}</label>
                             @foreach ($hours as $hour)
-                                <?php $triggered = 0; ?>
+                                @php
+                                    $triggered = 0;
+                                @endphp
                                 @if ($hour == 17)
                                     <label class="d-block m-2">{{ __('Evening') }}</label>
                                 @endif
                                 @foreach ($bookings as $booking)
                                     @if ($booking->hour == $hour && $pitch->id == $booking->pitch_id)
-                                        <?php $triggered = 1; ?>
+                                        @php
+                                            $triggered = 1;
+                                        @endphp
                                         <div class="d-inline-block bg-danger col-2 text-center appointment"
                                             pitch="{{ $pitch->id }}">
                                             {{ $hour }}:00

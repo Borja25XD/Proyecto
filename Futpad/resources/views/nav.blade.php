@@ -59,23 +59,46 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item my-2 button-cart">
-                <div class="dropdown">
-                    <a class="btn btn-secondary dropdown-toggle bg-info" href="#" role="button" id="dropdownMenuLink"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src=" {{ url('/images/shopping-cart.png') }}" alt="shopping-cart"
-                            style="max-height: 18px;">
-                        <span> ({{ Cart::getContent()->count() }})</span>
-                    </a>
-                    <ul class="dropdown-menu shopping-cart" aria-labelledby="dropdownMenuLink" id="langList">
-                        @if (Cart::getContent())
-                            <li><a class="dropdown-item"
-                                    href="{{ route('cart.checkout') }}">{{ __('View all cart') }}<span>
-                                        ({{ Cart::getContent()->count() }})</span></a></li>
-                        @endif
-                    </ul>
-                </div>
-            </li>
+            @guest
+                <li class="nav-item my-2 button-cart">
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle bg-info" href="#" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src=" {{ url('/images/shopping-cart.png') }}" alt="shopping-cart"
+                                style="max-height: 18px;">
+                            <span> ({{ Cart::getContent()->count() }})</span>
+                        </a>
+                        <ul class="dropdown-menu shopping-cart" aria-labelledby="dropdownMenuLink" id="langList">
+                            @if (Cart::getContent())
+                                <li><a class="dropdown-item"
+                                        href="{{ route('cart.checkout') }}">{{ __('View all cart') }}<span>
+                                            ({{ Cart::getContent()->count() }})</span></a></li>
+                            @endif
+                        </ul>
+                    </div>
+                </li>
+            @else
+                @if (auth()->user()->type != 'admin')
+                    <li class="nav-item my-2 button-cart">
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle bg-info" href="#" role="button"
+                                id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src=" {{ url('/images/shopping-cart.png') }}" alt="shopping-cart"
+                                    style="max-height: 18px;">
+                                <span> ({{ Cart::getContent()->count() }})</span>
+                            </a>
+                            <ul class="dropdown-menu shopping-cart" aria-labelledby="dropdownMenuLink" id="langList">
+                                @if (Cart::getContent())
+                                    <li><a class="dropdown-item"
+                                            href="{{ route('cart.checkout') }}">{{ __('View all cart') }}<span>
+                                                ({{ Cart::getContent()->count() }})</span></a></li>
+                                @endif
+                            </ul>
+                        </div>
+                    </li>
+                @endif
+            @endguest
+
     </div>
 </nav>
 
