@@ -8,7 +8,7 @@
 @section('content')
     <div class="container bg-light rounded my-4  p-3">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-xs-12">
                 <h1 class="title-cart">{{ __('Shopping cart') }}</h1>
                 @if (count(Cart::getContent()))
                     <p class="description-cart">{{ __('Review your order before pay:') }}</p>
