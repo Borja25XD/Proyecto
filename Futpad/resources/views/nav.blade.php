@@ -85,7 +85,7 @@
                                         <span style="padding-left: 10px">({{ $item->quantity }})</span>
                                         <span><img src={{ url('/images/shop/' . $url[0]->url . '.jpg') }}
                                                 class="item-img" alt="{{ $item->url }}"></span>
-                                        <span>{{ $item->name }}</span>
+                                        <span>{{ __($item->name) }}</span>
                                         <span class="product-price">{{ $total = $item->price * $item->quantity }}
                                             &euro;</span>
                                         <span class="remove-item">
@@ -128,7 +128,7 @@
                                             <span style="padding-left: 10px">({{ $item->quantity }})</span>
                                             <span><img src={{ url('/images/shop/' . $url[0]->url . '.jpg') }}
                                                     class="item-img" alt="{{ $item->url }}"></span>
-                                            <span>{{ $item->name }}</span>
+                                            <span>{{ __($item->name) }}</span>
                                             <span class="product-price">{{ $total = $item->price * $item->quantity }}
                                                 &euro;</span>
                                             <span class="remove-item">
@@ -185,7 +185,7 @@
                             <span> ({{ Cart::getContent()->count() }})</span>
                         </a>
 
-                        <ul class="dropdown-menu shopping-cart" aria-labelledby="dropdownMenuLink" id="langList">
+                        <ul class="dropdown-menu shopping-cart" aria-labelledby="dropdownMenuLink" id="langList shop">
                             @if (Cart::getContent())
                                     @php
                                         $cart = Cart::getContent();
@@ -202,7 +202,7 @@
                                             <span style="padding-left: 10px">({{ $item->quantity }})</span>
                                             <span><img src={{ url('/images/shop/' . $url[0]->url . '.jpg') }}
                                                     class="item-img" alt="{{ $item->url }}"></span>
-                                            <span>{{ $item->name }}</span>
+                                            <span>{{ __($item->name) }}</span>
                                             <span class="product-price">{{ $total = $item->price * $item->quantity }}
                                                 &euro;</span>
                                             <span class="remove-item">
@@ -226,7 +226,7 @@
                         <span> ({{ Cart::getContent()->count() }})</span>
                     </a>
 
-                    <ul class="dropdown-menu shopping-cart" aria-labelledby="dropdownMenuLink" id="langList">
+                    <ul class="dropdown-menu shopping-cart-xs" aria-labelledby="dropdownMenuLink" id="langList">
                         @if (Cart::getContent())
                             <li><a class="dropdown-item"
                                     href="{{ route('cart.checkout') }}">{{ __('View all cart') }}<span>

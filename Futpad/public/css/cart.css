@@ -63,3 +63,12 @@ tfoot{
     border-radius: 5px;
     text-align: center;
 }
+
+table{
+    font-size: 14px;
+}
+
+table > thead{
+    font-size: 12px;
+    width: 100%;
+}

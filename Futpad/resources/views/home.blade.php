@@ -12,24 +12,16 @@
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        {{-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button> --}}
       </div>
         <div id="carouselBox" class="carousel-inner rounded">
           <div class="carousel-item active">
             <img class="d-block w-100" src="{{ url('/images/pitch2.jpg') }}" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
-              <button class="pitch-link"><a href="{{route('booking')}}">¡RESERVA YA TU PISTA DE PÁDEL!</a></button>
+              <button class="pitch-link"><a href="{{route('booking')}}">{{__('Book your paddle court now!')}}</a></button>
             </div>
           </div>
-          {{-- <div class="carousel-item" style="width: 1000px; margin-left: 144px">
-            <img class="d-block w-100" src="{{ url('/images/shop/camiseta-artengo-nino.jpg') }}" alt="Second slide" style="height:730px">
-            <div class="carousel-caption d-none d-md-block">
-              <h5 style="color:white">Camiseta Artengo</h5>
-              <p>Ideal para estás épocas de frío, manteniendo la comodidad</p>
-            </div>
-          </div> --}}
-          <div class="carousel-item" style="width: 1000px; margin-left: 144px">
-            <img class="d-block w-100" src="{{ url('/images/shop/paletero-bullpadel.jpg') }}" alt="Third slide" style="height:730px;">
+          <div class="carousel-item second-slide">
+            <img class="d-block w-100" src="{{ url('/images/pitch3.jpg') }}" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
               <h3>{{__('Buy now the best products at the best price')}}</h3>
               <button class="shop-link"><a href="{{route('shop')}}">{{__('Go to the shop')}}</a></button>

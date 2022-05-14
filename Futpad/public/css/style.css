@@ -68,8 +68,12 @@ footer > .row {
     margin-left: 10px;
 }
 
-#langList {
+.shopping-cart {
     width: 400px;
+}
+
+.shopping-cart-xs {
+    width: 120px;
 }
 
 li.product-li{

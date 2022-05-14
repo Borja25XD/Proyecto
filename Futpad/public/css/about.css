@@ -7,12 +7,11 @@
 }
 
 .aboutus-img{
-    width: 1000px;
-    height: 600px;
+    width: 100%;
 }
 
 .aboutus-text{
-    width: 1000px;
+    width: 90%;
     line-height: 30px;
     text-align: justify;
     margin-bottom: 50px;
@@ -21,9 +20,8 @@
 }
 
 .location{
-    width: 1000px;
-    display: flex;
-    justify-content: space-between;
+    width: 90%;
+    display: block;
 }
 
 .location-text{
@@ -32,9 +30,11 @@
     text-align: justify;
     vertical-align: middle;
     font-size: 24px;
-    padding-top: 10%;
 }
 
 .location-img{
     width: 60%;
+    margin-top: 30px;
+    position: relative;
+    left:15%;
 }
