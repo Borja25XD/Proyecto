@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Products;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -12,12 +13,15 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // $products = Products::all();
+        // $products = Products::all()->where('category', '=', $request->category);
         // return view('shop')->with(["products" => $products]);
-        $products = Products::paginate(9);
-        return view('shop')->with(["products" => $products]);
+        // $products = Products::where('category', '=',  $category);
+        $products = DB::table('products')->where([['category', '=',  $request->category]]);
+        // $products = Products->paginate(10);
+        // return view('shop')->with(["products" => $products]);
+        return $products;
     }
 
     /**

@@ -1,19 +1,19 @@
-.card{
-    margin:20px;
+.card {
+    margin: 20px;
     border-radius: 20px;
     height: 560px;
 }
 
-.card-title{
+.card-title {
     color: blue;
     height: 48px;
 }
 
-.card-body{
+.card-body {
     height: 210px;
 }
 
-.card-img-center{
+.card-img-center {
     margin-top: 15px;
 }
 
@@ -21,81 +21,103 @@ footer {
     margin-top: 1.5rem;
 }
 
-.shop-cart{
+.shop-cart {
     margin-top: 10px;
 }
 
-path{
+path {
     display: none;
 }
 
-svg{
+svg {
     display: none;
 }
 
-.nav-item-p{
+.nav-item-p {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-.shop-title{
-    color:blue;
+.shop-title {
+    color: blue;
     text-align: center;
     transition: color 2s;
     font-weight: bold;
 }
 
-.shop-title:hover{
+.shop-title:hover {
     color: darkgreen;
 }
 
-.nav-item-p:hover{
-    color:yellow;
+.nav-item-p:hover {
+    color: yellow;
 }
 
-.products-nav{
-    background-color: #3B83BD;
-    border-radius: 15px;
+.products-nav {
+    border-radius: 10px;
     margin-top: 20px;
+    background-color: #0000FF;
+
 }
 
-.products-nav-item{
+.products-nav-item {
     list-style: none;
     text-align: center;
     padding-right: 35px;
 }
 
-.products-nav-item:hover{
+.products-nav-item:hover {
     background-color: #3b83ac;
     border-radius: 15px;
     width: calc(100% - 35px);
     padding-left: 35px;
 }
 
-.text-sm{
+.text-sm {
     margin-top: 10px;
     padding-left: 15px;
 }
 
-.flex{
+.flex {
     margin-top: 20px;
     padding-left: 15px;
 }
 
-span.relative{
+span.relative {
     display: none;
 }
 
-.container{
+.container {
     -webkit-box-shadow: -1px 0px 18px -4px #000000;
     box-shadow: -1px 0px 18px -4px #000000;
 }
 
-.show{
+.show {
     display: block;
 }
 
-.hidden{
+.hidden {
     display: none;
+}
+
+.input-nav {
+    display: flex;
+    margin: 0 auto;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #0000FF;
+    border: none;
+    text-align: center;
+    color: white;
+    justify-content: center;
+    transition: font-size 0.5s;
+}
+
+.input-nav:hover{
+    background-color: #3b83ac;
+    color: yellow;
+    font-size: 1.1em;
+    font-weight: bold;
 }
