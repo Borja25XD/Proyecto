@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-box-shadow: -1px 0px 18px -4px #000000;
+    box-shadow: -1px 0px 18px -4px #000000;
+}
+
+.aboutus-img{
+    width: 1000px;
+    height: 600px;
+}
+
+.aboutus-text{
+    width: 1000px;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-size: 24px;
+}
+
+.location{
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.location-text{
+    width: 30%;
+    line-height: 30px;
+    text-align: justify;
+    vertical-align: middle;
+    font-size: 24px;
+    padding-top: 10%;
+}
+
+.location-img{
+    width: 60%;
+}

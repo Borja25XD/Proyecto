@@ -70,9 +70,33 @@
                         </a>
                         <ul class="dropdown-menu shopping-cart" aria-labelledby="dropdownMenuLink" id="langList">
                             @if (Cart::getContent())
-                                <li><a class="dropdown-item"
+                                @php
+                                    $cart = Cart::getContent();
+                                    $total = 0;
+                                @endphp
+                                <li style="text-align: center"><a class="dropdown-item"
                                         href="{{ route('cart.checkout') }}">{{ __('View cart') }}<span>
                                             ({{ Cart::getContent()->count() }})</span></a></li>
+                                @foreach ($cart as $item)
+                                    @php
+                                        $url = DB::select(DB::raw('SELECT url FROM  products WHERE id = :variable'), ['variable' => $item->id]);
+                                    @endphp
+                                    <li class="product-li">
+                                        <span style="padding-left: 10px">({{ $item->quantity }})</span>
+                                        <span><img src={{ url('/images/shop/' . $url[0]->url . '.jpg') }}
+                                                class="item-img" alt="{{ $item->url }}"></span>
+                                        <span>{{ $item->name }}</span>
+                                        <span class="product-price">{{ $total = $item->price * $item->quantity }}
+                                            &euro;</span>
+                                        <span class="remove-item">
+                                            <form action="{{ route('cart.removeitem') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $item->id }}">
+                                                <button type="submit" class="btn btn-link btn-sm text-danger">x</button>
+                                            </form>
+                                        </span>
+                                    </li>
+                                @endforeach
                             @endif
                         </ul>
                     </div>
@@ -89,9 +113,33 @@
                             </a>
                             <ul class="dropdown-menu shopping-cart" aria-labelledby="dropdownMenuLink" id="langList">
                                 @if (Cart::getContent())
-                                    <li><a class="dropdown-item"
+                                    @php
+                                        $cart = Cart::getContent();
+                                        $total = 0;
+                                    @endphp
+                                    <li style="text-align: center"><a class="dropdown-item"
                                             href="{{ route('cart.checkout') }}">{{ __('View all cart') }}<span>
                                                 ({{ Cart::getContent()->count() }})</span></a></li>
+                                    @foreach ($cart as $item)
+                                        @php
+                                            $url = DB::select(DB::raw('SELECT url FROM  products WHERE id = :variable'), ['variable' => $item->id]);
+                                        @endphp
+                                        <li class="product-li">
+                                            <span style="padding-left: 10px">({{ $item->quantity }})</span>
+                                            <span><img src={{ url('/images/shop/' . $url[0]->url . '.jpg') }}
+                                                    class="item-img" alt="{{ $item->url }}"></span>
+                                            <span>{{ $item->name }}</span>
+                                            <span class="product-price">{{ $total = $item->price * $item->quantity }}
+                                                &euro;</span>
+                                            <span class="remove-item">
+                                                <form action="{{ route('cart.removeitem') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                                    <button type="submit" class="btn btn-link btn-sm text-danger">x</button>
+                                                </form>
+                                            </span>
+                                        </li>
+                                    @endforeach
                                 @endif
                             </ul>
                         </div>
@@ -139,10 +187,34 @@
 
                         <ul class="dropdown-menu shopping-cart" aria-labelledby="dropdownMenuLink" id="langList">
                             @if (Cart::getContent())
-                                <li><a class="dropdown-item"
-                                        href="{{ route('cart.checkout') }}">{{ __('View all cart') }}<span>
-                                            ({{ Cart::getContent()->count() }})</span></a></li>
-                            @endif
+                                    @php
+                                        $cart = Cart::getContent();
+                                        $total = 0;
+                                    @endphp
+                                    <li style="text-align: center"><a class="dropdown-item"
+                                            href="{{ route('cart.checkout') }}">{{ __('View all cart') }}<span>
+                                                ({{ Cart::getContent()->count() }})</span></a></li>
+                                    @foreach ($cart as $item)
+                                        @php
+                                            $url = DB::select(DB::raw('SELECT url FROM  products WHERE id = :variable'), ['variable' => $item->id]);
+                                        @endphp
+                                        <li class="product-li">
+                                            <span style="padding-left: 10px">({{ $item->quantity }})</span>
+                                            <span><img src={{ url('/images/shop/' . $url[0]->url . '.jpg') }}
+                                                    class="item-img" alt="{{ $item->url }}"></span>
+                                            <span>{{ $item->name }}</span>
+                                            <span class="product-price">{{ $total = $item->price * $item->quantity }}
+                                                &euro;</span>
+                                            <span class="remove-item">
+                                                <form action="{{ route('cart.removeitem') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                                    <button type="submit" class="btn btn-link btn-sm text-danger">x</button>
+                                                </form>
+                                            </span>
+                                        </li>
+                                    @endforeach
+                                @endif
                         </ul>
                     </div>
                 @endif

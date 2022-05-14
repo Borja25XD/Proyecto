@@ -23,7 +23,9 @@
                             <th>{{ Str::upper(__('Remove item')) }}</th>
                         </thead>
                         <tbody>
-                            <?php $total = 0; ?>
+                            @php
+                                $total = 0;
+                            @endphp
                             @foreach (Cart::getContent() as $item)
                                 @php
                                     $url = DB::select(DB::raw('SELECT url FROM  products WHERE id = :variable'), ['variable' => $item->id]);
@@ -36,7 +38,9 @@
                                     <td>{{ $item->price }} &euro;</td>
                                     <td>{{ $item->quantity }}</td>
                                     <td>{{ $item->price * $item->quantity }} &euro;</td>
-                                    <?php $total += $item->price * $item->quantity; ?>
+                                    @php
+                                        $total += $item->price * $item->quantity;
+                                    @endphp
                                     <td>
                                         <form action="{{ route('cart.removeitem') }}" method="POST">
                                             @csrf
@@ -53,7 +57,7 @@
                             <th></th>
                         </tfoot>
                     </table>
-                    <button class="buy-button">{{ __('Buy products') }}: <?php echo $total; ?> &euro;</button>
+                    <button class="buy-button">{{ __('Buy products') }}: @php echo $total; @endphp &euro;</button>
                 @else
                     <p class="empty-cart">{{ __('Empty shopping cart') }}</p>
                 @endif

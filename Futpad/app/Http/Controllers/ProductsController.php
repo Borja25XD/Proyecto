@@ -15,13 +15,21 @@ class ProductsController extends Controller
      */
     public function index(Request $request)
     {
+        if(isset($request->category)){
+            $products = Products::where('category', '=', $request->category)->paginate(6);
+        }else{
+            $products = Products::paginate(10);
+            // $products = DB::select(DB::raw('SELECT * FROM products'));
+            // return view('shop')->with(["products" => $products]);
+        }
+        return view('shop')->with(["products" => $products]);
         // $products = Products::all()->where('category', '=', $request->category);
         // return view('shop')->with(["products" => $products]);
         // $products = Products::where('category', '=',  $category);
-        $products = DB::table('products')->where([['category', '=',  $request->category]]);
+        // $products = DB::table('products')->where([['category', '=',  $request->category]]);
         // $products = Products->paginate(10);
         // return view('shop')->with(["products" => $products]);
-        return $products;
+        // return $products;
     }
 
     /**

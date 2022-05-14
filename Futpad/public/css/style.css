@@ -60,12 +60,36 @@ footer > .row {
     line-height: normal;
 }
 
-#langList {
+/* #langList {
     max-width: 20px !important;
-}
+} */
 
 .button-cart {
     margin-left: 10px;
+}
+
+#langList {
+    width: 400px;
+}
+
+li.product-li{
+    display: flex;
+    gap: 20px
+}
+
+.item-img{
+    width: 30px;
+    height: 30px;
+}
+
+.remove-item{
+    position: absolute;
+    right: 10px;
+}
+
+.product-price{
+    position: absolute;
+    right: 50px;
 }
 
 @media screen and (max-width: 900px) and (min-width: 756px) {

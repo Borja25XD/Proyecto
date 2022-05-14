@@ -101,7 +101,7 @@ span.relative {
     display: none;
 }
 
-.input-nav {
+.button-nav {
     display: flex;
     margin: 0 auto;
     padding: 10px;
@@ -115,7 +115,7 @@ span.relative {
     transition: font-size 0.5s;
 }
 
-.input-nav:hover{
+.button-nav:hover{
     background-color: #3b83ac;
     color: yellow;
     font-size: 1.1em;

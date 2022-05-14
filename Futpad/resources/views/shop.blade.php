@@ -13,18 +13,18 @@
             <div class="col-3">
                 <div class="products-nav">
                     <form class="filter-form" action="{{route('shop')}}" method="GET">
-                        {{-- <input type="submit" class="input-nav" name="category" id="All" value="{{ __('All') }}"> --}}
-                        <input type="submit" class="input-nav" name="category" id="Accesories"
-                            value="{{ __('Accesories') }}">
-                        <input type="submit" class="input-nav" name="category" id="Balls" value="{{ __('Balls') }}">
-                        <input type="submit" class="input-nav" name="category" id="Clothes"
-                            value="{{ __('Clothes') }}">
-                        <input type="submit" class="input-nav" name="category" id="Padelbat"
-                            value="{{ __('Padelbat') }}">
-                        <input type="submit" class="input-nav" name="category" id="Padelbatbag"
-                            value="{{ __('Padelbatbag') }}">
-                        <input type="submit" class="input-nav" name="category" id="Sportshoes"
-                            value="{{ __('Sportshoes') }}">
+                        <button type="submit" class="button-nav" id="All">{{__('All')}}</button>
+                        <button type="submit" class="button-nav" name="category" id="Accesories"
+                            value="Accesories">{{ __('Accesories') }}</button>
+                        <button type="submit" class="button-nav" name="category" id="Balls" value="Balls">{{ __('Balls') }}</button>
+                        <button type="submit" class="button-nav" name="category" id="Clothes"
+                            value="Clothes">{{ __('Clothes') }}</button>
+                        <button type="submit" class="button-nav" name="category" id="Padelbat"
+                            value="Padelbat">{{ __('Padelbat') }}</button>
+                        <button type="submit" class="button-nav" name="category" id="Padelbatbag"
+                            value="Padelbatbag">{{ __('Padelbatbag') }}</button>
+                        <button type="submit" class="button-nav" name="category" id="Sportshoes"
+                            value="Sportshoes">{{ __('Sportshoes') }}</button>
                     </form>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                             </div>
                         @endforeach --}}
                     @foreach ($products as $item)
-                        @if (request('category') == $item->category)
+                        {{-- @if (request('category') == $item->category) --}}
                             <div class="col-4 item-card {{ $item->category }} show">
                                 <div class="card text-center" style="width: 18rem;">
                                     <img src={{ url('/images/shop/' . $item->url . '.jpg') }} class="card-img-center"
@@ -76,10 +76,10 @@
                                     </div>
                                 </div>
                             </div>
-                        @endif
+                        {{-- @endif --}}
                     @endforeach
                 </div>
-                {{-- <div class="d-flex justify-content-center">{!! $products->links() !!}</div> --}}
+                <div class="d-flex justify-content-center">{!! $products->links() !!}</div>
             </div>
         </div>
         {{-- <script src="../public/js/shop.js" defer></script> --}}
