@@ -17,14 +17,18 @@
           <div class="carousel-item active">
             <img class="d-block w-100" src="{{ url('/images/pitch2.jpg') }}" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
-              <button class="pitch-link"><a href="{{route('booking')}}">{{__('Book your paddle court now!')}}</a></button>
+              <form action="{{route('booking')}}">
+                <button class="pitch-link"><a href="{{route('booking')}}">{{__('Book your paddle court now!')}}</a></button>
+              </form>
             </div>
           </div>
           <div class="carousel-item second-slide">
             <img class="d-block w-100" src="{{ url('/images/pitch3.jpg') }}" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
               <h3>{{__('Buy now the best products at the best price')}}</h3>
-              <button class="shop-link"><a href="{{route('shop')}}">{{__('Go to the shop')}}</a></button>
+              <form action="{{route('shop')}}">
+                <button class="shop-link"><a href="{{route('shop')}}">{{__('Go to the shop')}}</a></button>
+              </form>
             </div>
           </div>
         </div>

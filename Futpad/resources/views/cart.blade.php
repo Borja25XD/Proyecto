@@ -64,8 +64,8 @@
                                 &euro;</button>
                         </form>
                     @else
-                        <button class=""><a
-                                href="{{ route('login') }}">{{ 'Log in to proceed buying' }}</a></button>
+                        <button class="buy-button-login"><a
+                                href="{{ route('login') }}">{{__('Log in to proceed buying') }}</a></button>
 
                     @endauth
                 @else

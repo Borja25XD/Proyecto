@@ -26,6 +26,28 @@ table{
     color: yellow;
 }
 
+.buy-button-login{
+    color: white;
+    background-color: red;
+    border-radius: 2em;
+    border: 1px solid red;
+    padding: 10px;
+    width:300px; 
+    margin: -20px -120px; 
+    position:relative;
+    top:30%; 
+    left:47%;
+}
+.buy-button-login > a{
+    text-decoration: none;
+    color: white;
+}
+
+.buy-button-login:hover{
+    font-weight: bold;
+    background-color: darkred;
+}
+
 thead{
     background-color: black;
 }
