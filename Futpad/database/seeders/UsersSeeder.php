@@ -22,6 +22,13 @@ class UsersSeeder extends Seeder
                 'phone' => '628874867',
                 'email' => 'admin@futpad.com',
                 'password' => Hash::make('secret123'),
+            ],
+            [
+                'name' => 'Borja',
+                'type' => 'customer',
+                'phone' => '628874868',
+                'email' => 'borjasantos7@gmail.com',
+                'password' => Hash::make('secret123'),
             ]
         ];
         DB::table('users')->insert($users);

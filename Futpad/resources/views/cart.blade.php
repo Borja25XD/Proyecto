@@ -1,4 +1,4 @@
-@extends(".layouts/base")
+@extends('.layouts/base')
 
 @section('css')
     <link rel="stylesheet" href={{ asset('/css/style.css?v=') . time() }}>
@@ -31,12 +31,12 @@
                                     $url = DB::select(DB::raw('SELECT url FROM  products WHERE id = :variable'), ['variable' => $item->id]);
                                 @endphp
                                 <tr>
-                                    <td>{{ $item->id }}</td>
+                                    <td class="ProductId">{{ $item->id }}</td>
                                     <td><img src={{ url('/images/shop/' . $url[0]->url . '.jpg') }} class="item-img"
                                             alt="{{ $item->url }}"></td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->price }} &euro;</td>
-                                    <td>{{ $item->quantity }}</td>
+                                    <td class="ProductQty">{{ $item->quantity }}</td>
                                     <td>{{ $item->price * $item->quantity }} &euro;</td>
                                     @php
                                         $total += $item->price * $item->quantity;
@@ -57,9 +57,19 @@
                             <th></th>
                         </tfoot>
                     </table>
-                    <button class="buy-button">{{ __('Buy products') }}: @php echo $total; @endphp &euro;</button>
+                    @auth
+                        <form action="{{ route('cart.store') }}" method="POST">
+                            @csrf
+                            <button class="buy-button" type="submit">{{ __('Buy products') }}: @php echo $total; @endphp
+                                &euro;</button>
+                        </form>
+                    @else
+                        <button class=""><a
+                                href="{{ route('login') }}">{{ 'Log in to proceed buying' }}</a></button>
+
+                    @endauth
                 @else
-                    <p class="empty-cart">{{ __('Empty shopping cart') }}</p>
+                    <p class=" empty-cart">{{ __('Empty shopping cart') }}</p>
                 @endif
 
             </div>

@@ -59,6 +59,8 @@ Route::post('/cart-clear', CartController::class.'@clear')->name('cart.clear');
 
 Route::post('/cart-removeitem', CartController::class.'@removeitem')->name('cart.removeitem');
 
+Route::post('/pedido-confirmado', CartController::class.'@store')->name('cart.store');
+
 //Route::post('reservas', 'App\Http\Controllers\BookingController@' . 'store')->name("reservas.store");
 
 Route::view('cookies', 'cookies')->name('cookies');
