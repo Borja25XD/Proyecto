@@ -9,23 +9,23 @@
     <div class="container">
         @auth
             <div class="d-flex align-items-start my-4">
-                <div class="nav flex-column nav-tabs" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <button class="nav-link @if (!isset($bookings)) @php echo "active" @endphp @endif"
+                <div class="nav flex-column nav-tabs dashboard-nav" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <button class="nav-link @if (!isset($bookings)) @php echo "active" @endphp @endif dashboard-nav-link"
                         id="v-pills-home-tab" data-bs-toggle="tab" data-bs-target="#v-pills-home" type="button" role="tab"
                         aria-controls="v-pills-home" aria-selected="true">{{ __('Account information') }}</button>
-                    <button class="nav-link @if (isset($bookings)) @php echo "active" @endphp @endif"
+                    <button class="nav-link @if (isset($bookings)) @php echo "active" @endphp @endif dashboard-nav-link"
                         id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="buttn" role="tab"
                         aria-controls="v-pills-profile" aria-selected="false"> {{ __('Bookings') }}</button>
-                    <button class="nav-link" id="v-pills-orders-tab" data-bs-toggle="pill" data-bs-target="#v-pills-orders"
+                    <button class="nav-link dashboard-nav-link" id="v-pills-orders-tab" data-bs-toggle="pill" data-bs-target="#v-pills-orders"
                         type="buttn" role="tab" aria-controls="v-pills-orders" aria-selected="false">
                         {{ __('Orders') }}</button>
                     @if (auth()->user()->type == 'admin')
-                        <button class="nav-link @if (isset($bookings)) @php echo "active" @endphp @endif"
+                        <button class="nav-link @if (isset($bookings)) @php echo "active" @endphp @endif dashboard-nav-link"
                             id="v-pills-pitches-tab" data-bs-toggle="pill" data-bs-target="#v-pills-pitches" type="buttn"
                             role="tab" aria-controls="v-pills-pitches" aria-selected="false"> {{ __('Pitches') }}</button>
                     @endif
                 </div>
-                <div class="tab-content col-10" id="v-pills-tabContent">
+                <div class="tab-content col-10 container-tabs" id="v-pills-tabContent">
                     <div class="tab-pane fade  @if (!isset($bookings)) @php echo "show active" @endphp @endif bg-white"
                         id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <div class="offset-1 my-3">
@@ -60,8 +60,8 @@
                                 }
                             }
                         @endphp
-                        <div class="container col-12 offset-1">
-                            <h3>{{ __('Active bookings') }}:</h3>
+                        <div class="container col-12 offset-1 container-table">
+                            <h3>{{ __('Active bookings') }}</h3>
                             @if (empty($bookings))
                                 <div class="row px-3">
                                     <div class="col-12 offset-1">
@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
                             @else
-                                <table class="table table-striped table-hover">
+                                <table class="table table-striped table-hover reserve-table">
                                     <thead>
                                         <tr>
                                             <th>{{ __('Date') }}</th>
@@ -118,7 +118,7 @@
                         <div class="tab-pane fade bg-white p-3" id="v-pills-pitches" role="tabpanel"
                             aria-labelledby="v-pills-pitches-tab">
                             <div class="container col-12">
-                                <h4>{{ __('Manage status') }}:</h4>
+                                <h3>{{ __('Manage status') }}</h4>
                                 <?php
                                 $pitches = DB::select(DB::raw('SELECT * FROM  pitches '));
                                 ?>

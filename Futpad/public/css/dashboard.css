@@ -37,6 +37,10 @@
     border-bottom-left-radius: 0.4rem;
 }
 
+.container-tabs{
+    width: 75.333333%;
+}
+
 #v-pills-tab {
     font-size: 14px;
 }
@@ -60,4 +64,29 @@ h3 {
 
 td > form {
     display: inline-block;
+}
+
+.reserve-table{
+    text-align: center;
+}
+
+.container-table{
+    margin-left: 0px;
+}
+.tab-pane{
+    overflow: hidden;
+}
+
+.dashboard-nav{
+    background-color: white;
+}
+
+h3{
+    text-align: center;
+    color: blue;
+    text-decoration: none;
+}
+
+h4{
+    font-weight: bold;
 }

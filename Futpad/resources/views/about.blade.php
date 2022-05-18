@@ -14,5 +14,11 @@
             <span class="location-text">{{__('Our facilities are specifically located in the Las Chafiras industrial estate, in the municipality of San Miguel de Abona. Perfectly located, with ample parking.')}}</span>
             <img class="location-img" src="{{url('images/ubi.png')}}">
         </div>
+        <ul class="prices">{{__('Prices')}}:
+            <li>{{__('Pitch: 16€/hour (4€/person)')}}</li>
+            <li>{{__('Padelbat renting: 2€')}}</li>
+            <li>{{__('Balls pack: 5€')}}</li>
+        </ul>
+        <p><b>{{__('**Our customers are kindly requested to pay in advance for the facilities, thank you.**')}}</b></p>
     </div>
 @endsection

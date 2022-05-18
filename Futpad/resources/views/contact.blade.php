@@ -2,10 +2,11 @@
 
 @section('css')
     <link rel="stylesheet" href={{ asset('/css/style.css?v=') . time() }}>
+    <link rel="stylesheet" href={{ asset('/css/contact.css?v=') . time() }}>
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container bg-light rounded">
         <h1>{{ __('Contact') }}</h1>
         <form method="POST" class="needs-validation" novalidate action="{{ route('contact') }}">
             @csrf

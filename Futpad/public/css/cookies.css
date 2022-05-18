@@ -1,0 +1,46 @@
+.container{
+    -webkit-box-shadow: -1px 0px 18px -4px #000000;
+    box-shadow: -1px 0px 18px -4px #000000;
+}
+
+.buttons{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    padding-bottom: 10px;
+}
+
+.all-cookies{
+    padding: 10px;
+    border-radius: 1em;
+    background-color: lightgreen;
+    font-weight: bold;
+}
+
+.all-cookies:hover{
+    background-color: green;
+}
+
+.necesary-cookies{
+    padding: 10px;
+    border-radius: 1em;
+    background-color: lightyellow;
+    font-weight: bold;
+}
+
+.necesary-cookies:hover{
+    background-color: yellow;
+}
+
+.deny-cookies{
+    padding: 10px;
+    border-radius: 1em;
+    background-color: lightcoral;
+    font-weight: bold;
+}
+
+.deny-cookies:hover{
+    background-color: red;
+}
