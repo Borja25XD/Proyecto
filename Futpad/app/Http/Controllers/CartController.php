@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\Products;
 use Cart;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderConfirmed;
 use PHPUnit\Framework\MockObject\Builder\Identity;
 
 class CartController extends Controller
@@ -54,17 +56,24 @@ class CartController extends Controller
         //return auth()->user()->id;
         //return  Cart::getContent();
         $products = Cart::getContent();
-        Orders::insert([
-            "user_id" => auth()->user()->id
-        ]);
-        $last =  DB::table('orders')->latest('order_id')->first();
-        foreach ($products as $product) {
-            Order_details::insert([
-                "order_id"      =>  $last->order_id,
-                "product_id"    =>  $product->id,
-                "quantity"      =>  $product->quantity,
-                "price"         =>  $product->price
+        //return count($products);
+        if (count($products) > 0) {
+            Orders::insert([
+                "user_id" => auth()->user()->id
             ]);
+            $last =  DB::table('orders')->latest('order_id')->first();
+            foreach ($products as $product) {
+                Order_details::insert([
+                    "order_id"      =>  $last->order_id,
+                    "product_id"    =>  $product->id,
+                    "quantity"      =>  $product->quantity,
+                    "price"         =>  $product->price
+                ]);
+            }
+            Mail::to($request->owner_email)->queue(new OrderConfirmed($products, $last->order_id));
+            Cart::clear();
+        } else {
+            return redirect("/cuenta");
         }
         return view("order_confirmed");
     }

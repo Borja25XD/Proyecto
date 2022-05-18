@@ -8,8 +8,7 @@
 @section('content')
     <div class="container">
         @auth
-            <h2>{{ __('Welcome') }} {{ auth()->user()->name }}</h2>
-            <div class="d-flex align-items-start">
+            <div class="d-flex align-items-start my-4">
                 <div class="nav flex-column nav-tabs" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <button class="nav-link @if (!isset($bookings)) @php echo "active" @endphp @endif"
                         id="v-pills-home-tab" data-bs-toggle="tab" data-bs-target="#v-pills-home" type="button" role="tab"
@@ -29,13 +28,14 @@
                 <div class="tab-content col-10" id="v-pills-tabContent">
                     <div class="tab-pane fade  @if (!isset($bookings)) @php echo "show active" @endphp @endif bg-white"
                         id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                        <div class="offset-1">
-                            <h4>{{ __('Email') }}:</h4>
-                            <div class="offset-1 data">{{ auth()->user()->email }}</div>
-                            <h4>{{ __('Name') }}:</h4>
-                            <div class="offset-1 data">{{ auth()->user()->name }}</div>
-                            <h4>{{ __('Phone') }}:</h4>
-                            <div class="offset-1 data">{{ auth()->user()->phone }}</div>
+                        <div class="offset-1 my-3">
+                            <h3>{{ __('Account details') }}</h3>
+                            <h4 class="d-inline-block" style="margin-top: 0.5rem">{{ __('Email') }}:</h4>
+                            <p class="offset-1 data">{{ auth()->user()->email }}</p>
+                            <h4 class="d-inline-block">{{ __('Name') }}:</h4>
+                            <p class="offset-1 data">{{ auth()->user()->name }}</p>
+                            <h4 class="d-inline-block">{{ __('Phone') }}:</h4>
+                            <p class="offset-1 data">{{ auth()->user()->phone }}</p>
                         </div>
                     </div>
                     <div class="tab-pane fade bg-white @if (isset($bookings)) @php echo "show active" @endphp @endif"
@@ -60,14 +60,14 @@
                                 }
                             }
                         @endphp
-                        <div class="container col-12">
-                            <h4>{{ __('Active bookings') }}:</h4>
+                        <div class="container col-12 offset-1">
+                            <h3>{{ __('Active bookings') }}:</h3>
                             @if (empty($bookings))
                                 <div class="row px-3">
-                                    <div class="col-12 p-3">
-                                        <p>{{ __('No active bookings') }}.</p>
+                                    <div class="col-12 offset-1">
+                                        <p class="py-3">{{ __('No active bookings') }}.</p>
                                         @if ($cancelMessage)
-                                            <p>
+                                            <p class="py-3">
                                                 {{ __('We are sorry, some of your bookings were canceled due to changes on the pitches availability, you can contact us') }}
                                                 <a href="{{ route('contact') }}">{{ __('here') }}</a>
                                                 {{ __('for more information') }}.
@@ -165,76 +165,60 @@
                     @endif
                     <div class="tab-pane fade bg-white" id="v-pills-orders" role="tabpanel"
                         aria-labelledby="v-pills-orders-tab">
-                        <div class="offset-1">
+                        <div class="offset-1 my-3">
+                            <h3>{{ __('Your orders') }}</h3>
                             @php
                                 $orders = DB::select(DB::raw('SELECT * FROM  orders WHERE user_id = :variable'), ['variable' => auth()->user()->id]);
-                                
-                                // var_dump($algo);
-                                
                             @endphp
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Products</th>
-                                        <th>Precio</th>
-                                        <th>Quantity</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($orders as $order)
-                                        <tr>
-
+                            @if (empty($orders))
+                                <p class="offset-1 py-3">{{ __("You don't have any orders at the moment") }}</p>
+                            @else
+                                @foreach ($orders as $order)
+                                    @php
+                                        $orderItems = DB::select(DB::raw('SELECT * FROM  orders INNER JOIN order_details ON orders.order_id = order_details.order_id  INNER JOIN products on order_details.product_id = products.id WHERE user_id = :variable AND order_details.order_id = :var2'), ['variable' => auth()->user()->id, 'var2' => $order->order_id]);
+                                    @endphp
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <th>{{ __('ID') }}</th>
+                                            <th>{{ Str::upper(__('Name')) }}</th>
+                                            <th>{{ Str::upper(__('Price')) }}</th>
+                                            <th>{{ Str::upper(__('Quantity')) }}</th>
+                                            <th>{{ Str::upper(__('Total price')) }}</th>
+                                        </thead>
+                                        <tbody>
                                             @php
-                                                $algo = DB::select(DB::raw('SELECT * FROM  orders INNER JOIN order_details ON orders.order_id = order_details.order_id WHERE user_id = :variable AND orders.order_id = :var2'), ['variable' => auth()->user()->id, 'var2' => $order->order_id]);
+                                                $total = 0;
+                                                $first = true;
                                             @endphp
-                                            <td rowspan="{{ count($algo) }}">{{ $order->order_id }}</td>
-                                            <td>
-                                                @foreach ($algo as $item)
-                                                    <p>{{ $item->product_id }}</p>
-                                                @endforeach
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            @foreach ($orders as $orders)
-                                <table class="table table-striped">
-                                    <thead>
-                                        <th>{{ __('ID') }}</th>
-                                        <th>{{ Str::upper(__('Name')) }}</th>
-                                        <th>{{ Str::upper(__('Price')) }}</th>
-                                        <th>{{ Str::upper(__('Quantity')) }}</th>
-                                        <th>{{ Str::upper(__('Total price')) }}</th>
-                                        <th>{{ Str::upper(__('Remove item')) }}</th>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $total = 0;
-                                        @endphp
-                                        @foreach ($algo as $item)
-                                            <tr>
-                                                <td class="ProductId">{{ $item->product_id }}</td>
-                                                @php
-                                                    $product = DB::select(DB::raw('SELECT * FROM products WHERE id = :variable'), ["variable" => $item->product_id])    
-                                                @endphp
-                                                <td>{{ $product[0]->name}}</td>
-                                                <td>{{ $item->price }} &euro;</td>
-                                                <td class="ProductQty">{{ $item->quantity }}</td>
-                                                <td>{{ $item->price * $item->quantity }} &euro;</td>
-                                                @php
-                                                    $total += $item->price * $item->quantity;
-                                                @endphp
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                    <tfoot>
-                                        <th colspan="5">TOTAL:</th>
-                                        <th class="total"><?php echo $total; ?> &euro;</th>
-                                        <th></th>
-                                    </tfoot>
-                                </table>
-                            @endforeach
+                                            @foreach ($orderItems as $item)
+                                                <tr>
+                                                    @if ($first)
+                                                        @php
+                                                            $first = false;
+                                                        @endphp
+                                                        <td rowspan="{{ count($orderItems) }}">{{ $order->order_id }}</td>
+                                                    @endif
+                                                    @php
+                                                        $product = DB::select(DB::raw('SELECT * FROM products WHERE id = :variable'), ['variable' => $item->product_id]);
+                                                    @endphp
+                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->price }} &euro;</td>
+                                                    <td class="ProductQty">{{ $item->quantity }}</td>
+                                                    <td>{{ $item->price * $item->quantity }} &euro;</td>
+                                                    @php
+                                                        $total += $item->price * $item->quantity;
+                                                    @endphp
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <th colspan="4">TOTAL:</th>
+                                            <th class="total"><?php echo $total; ?> &euro;</th>
+                                            <th></th>
+                                        </tfoot>
+                                    </table>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>

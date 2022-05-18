@@ -14,8 +14,6 @@
                     <p><p>{{ __('You can check your orders on') }} <a href="{{ route('dashboard') }}">{{ __('Orders') }}</a>
                         {{ __('in your profile') }}.</p>
                 @endauth
-
-
             </div>
         </div>
     </div>
