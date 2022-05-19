@@ -1,4 +1,4 @@
-@extends(".layouts/base")
+@extends('.layouts/base')
 
 @section('css')
     <link rel="stylesheet" href={{ asset('/css/style.css?v=') . time() }}>
@@ -21,18 +21,20 @@
             </form>
         @else
             <div class="row" id="canchas">
-                <label for="bookingDate" class="d-block m-3">{{ __('Select a date') }}:</label>
-                <form class="mx-3">
-                    @csrf
-                    <input type="date" name="bookingDate" id="bookingDate" value="{{ $_GET['bookingDate'] }}">
-                    <input type="submit" value="{{ __('Search') }}" class="btn btn-primary">
-                </form>
+                <div class="bookingBox">
+                    <label for="bookingDate" class="d-block m-3">{{ __('Select a date') }}:</label>
+                    <form class="mx-3">
+                        @csrf
+                        <input type="date" name="bookingDate" id="bookingDate" value="{{ $_GET['bookingDate'] }}">
+                        <input type="submit" value="{{ __('Search') }}" class="btn btn-primary">
+                    </form>
+                </div>
                 @php
                     $bookings = DB::select(DB::raw('SELECT * FROM  bookings WHERE date = :variable'), ['variable' => $_GET['bookingDate']]);
                 @endphp
                 @foreach ($pitches as $pitch)
                     @if ($pitch->status != 'unavailable')
-                        <label class="d-block pitchLabel mx-3">{{ __('Pitch') }} {{ $pitch->id }}</label>
+                        <label class="d-block pitchLabel mx-3 center">{{ __('Pitch') }} {{ $pitch->id }}</label>
                         <div class="d-inline my-1 mx-3 col-12" id="Cancha{{ $pitch->id }}">
                             <label class="d-block m-2">{{ __('Morning') }}</label>
                             @foreach ($hours as $hour)
@@ -77,12 +79,12 @@
                     <input type="hidden" name="owner_email" value="{{ auth()->user()->email }}" required>
                 @endauth
                 @guest
-                    <label for="owner_name" class="d-block my-2 form-label">{{ __('Name') }}:</label>
+                    <label for="owner_name" class="d-block my-2 form-label text-center">{{ __('Name') }}:</label>
                     <input class="form-control" type="text" name="owner_name" placeholder="" required>
-                    <label for="owner_email" class="d-block my-2 form-label">{{ __('Email') }}:</label>
+                    <label for="owner_email" class="d-block my-2 form-label text-center">{{ __('Email') }}:</label>
                     <input class="form-control" type="email" name="owner_email" placeholder="name@example.com" required>
                 @endguest
-                <input type="submit" class="d-block my-3 btn btn-primary" value="{{ __('Book') }}" id="send">
+                <input type="submit" class="d-block my-3 btn btn-primary centerLabel" value="{{ __('Book') }}" id="send">
             </form>
         @endif
     </div>

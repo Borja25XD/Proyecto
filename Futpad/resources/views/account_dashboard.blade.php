@@ -10,17 +10,23 @@
         @auth
             <div class="d-flex align-items-start my-4">
                 <div class="nav flex-column nav-tabs dashboard-nav" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <button class="nav-link @if (!isset($bookings)) @php echo "active" @endphp @endif dashboard-nav-link"
+                    <button
+                        class="nav-link @if (!isset($bookings)) @php echo "active" @endphp @endif dashboard-nav-link"
                         id="v-pills-home-tab" data-bs-toggle="tab" data-bs-target="#v-pills-home" type="button" role="tab"
                         aria-controls="v-pills-home" aria-selected="true">{{ __('Account information') }}</button>
-                    <button class="nav-link @if (isset($bookings)) @php echo "active" @endphp @endif dashboard-nav-link"
-                        id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="buttn" role="tab"
-                        aria-controls="v-pills-profile" aria-selected="false"> {{ __('Bookings') }}</button>
-                    <button class="nav-link dashboard-nav-link" id="v-pills-orders-tab" data-bs-toggle="pill" data-bs-target="#v-pills-orders"
-                        type="buttn" role="tab" aria-controls="v-pills-orders" aria-selected="false">
-                        {{ __('Orders') }}</button>
+                    @if (auth()->user()->type != 'admin')
+                        <button
+                            class="nav-link @if (isset($bookings)) @php echo "active" @endphp @endif dashboard-nav-link"
+                            id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="buttn"
+                            role="tab" aria-controls="v-pills-profile" aria-selected="false"> {{ __('Bookings') }}</button>
+                        <button class="nav-link dashboard-nav-link" id="v-pills-orders-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-orders" type="buttn" role="tab" aria-controls="v-pills-orders"
+                            aria-selected="false">
+                            {{ __('Orders') }}</button>
+                    @endif
                     @if (auth()->user()->type == 'admin')
-                        <button class="nav-link @if (isset($bookings)) @php echo "active" @endphp @endif dashboard-nav-link"
+                        <button
+                            class="nav-link @if (isset($bookings)) @php echo "active" @endphp @endif dashboard-nav-link"
                             id="v-pills-pitches-tab" data-bs-toggle="pill" data-bs-target="#v-pills-pitches" type="buttn"
                             role="tab" aria-controls="v-pills-pitches" aria-selected="false"> {{ __('Pitches') }}</button>
                     @endif
@@ -119,47 +125,49 @@
                             aria-labelledby="v-pills-pitches-tab">
                             <div class="container col-12">
                                 <h3>{{ __('Manage status') }}</h4>
-                                <?php
-                                $pitches = DB::select(DB::raw('SELECT * FROM  pitches '));
-                                ?>
-                                <table class="table table-striped table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>{{ __('Number') }}</th>
-                                            <th>{{ __('Status') }}</th>
-                                            <th>{{ __('Options') }}</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($pitches as $key => $pitch)
+                                    <?php
+                                    $pitches = DB::select(DB::raw('SELECT * FROM  pitches '));
+                                    ?>
+                                    <table class="table table-striped table-hover">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $pitch->id }}</td>
-                                                <td>{{ __($pitch->status) }}</td>
-                                                <td>
-                                                    @if ($pitch->status == 'available')
-                                                        <form method="POST" action="{{ route('editdisp') }}">
-                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                            <input type="hidden" name="id" value="{{ $pitch->id }}">
-                                                            <input type="hidden" name="availability"
-                                                                value="{{ $pitch->status }}">
-                                                            <input type="submit" class="btn btn-danger"
-                                                                value="{{ __('No available') }}">
-                                                        </form>
-                                                    @else
-                                                        <form method="POST" action="{{ route('editdisp') }}">
-                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                            <input type="hidden" name="id" value="{{ $pitch->id }}">
-                                                            <input type="hidden" name="availability"
-                                                                value="{{ $pitch->status }}">
-                                                            <input type="submit" class="btn btn-success"
-                                                                value="{{ __('Available') }}">
-                                                        </form>
-                                                    @endif
-                                                </td>
+                                                <th>{{ __('Number') }}</th>
+                                                <th>{{ __('Status') }}</th>
+                                                <th>{{ __('Options') }}</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($pitches as $key => $pitch)
+                                                <tr>
+                                                    <td>{{ $pitch->id }}</td>
+                                                    <td>{{ __($pitch->status) }}</td>
+                                                    <td>
+                                                        @if ($pitch->status == 'available')
+                                                            <form method="POST" action="{{ route('editdisp') }}">
+                                                                <input type="hidden" name="_token"
+                                                                    value="{{ csrf_token() }}">
+                                                                <input type="hidden" name="id" value="{{ $pitch->id }}">
+                                                                <input type="hidden" name="availability"
+                                                                    value="{{ $pitch->status }}">
+                                                                <input type="submit" class="btn btn-danger"
+                                                                    value="{{ __('No available') }}">
+                                                            </form>
+                                                        @else
+                                                            <form method="POST" action="{{ route('editdisp') }}">
+                                                                <input type="hidden" name="_token"
+                                                                    value="{{ csrf_token() }}">
+                                                                <input type="hidden" name="id" value="{{ $pitch->id }}">
+                                                                <input type="hidden" name="availability"
+                                                                    value="{{ $pitch->status }}">
+                                                                <input type="submit" class="btn btn-success"
+                                                                    value="{{ __('Available') }}">
+                                                            </form>
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                             </div>
                         </div>
                     @endif

@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <div class="card text-center">
+    <div class="card text-center my-4">
         <div class="card-header">
             {{ __($item->category) }}
         </div>
