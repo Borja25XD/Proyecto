@@ -18,15 +18,18 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
-        $item = Products::find($request->product_id);
-        //sreturn $item->url;
-        Cart::add(
-            $item->id,
-            $item->name,
-            $item->price,
-            1,
-        );
-        return back()->with('success', "$item->name ¡se ha agregado con éxito al carrito!");
+        if (auth()->user()->type == "customer") {
+            $item = Products::find($request->product_id);
+            //sreturn $item->url;
+            Cart::add(
+                $item->id,
+                $item->name,
+                $item->price,
+                1,
+            );
+            return back()->with('success', "$item->name ¡se ha agregado con éxito al carrito!");
+        }
+        return back();
     }
 
     public function cart()

@@ -44,6 +44,9 @@ class BookingController extends Controller
     {
         date_default_timezone_set('Europe/London');
         //return (auth()->user()->email);
+        if(auth()->user()->type == 'admin') {
+            return back();
+        }
         request()->validate([
             "owner_name" => 'required',
             "owner_email" => 'required|email',
