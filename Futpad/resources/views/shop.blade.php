@@ -56,4 +56,14 @@
                 <div class="d-flex justify-content-center">{!! $products->links() !!}</div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
+
+@section('script')
+<script>
+    let windowWidth = window.outerWidth;
+    if (windowWidth < 500) {
+        document.body.style.zoom = "80%";
+    } 
+</script>
+@endsection
