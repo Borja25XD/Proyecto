@@ -906,5 +906,11 @@
     "Pitch: 16€/hour (4€/person)": "Pista: 16/por hora (4€/por persona)",
     "Padelbat renting: 2€": "Alquiler de pala: 2€",
     "Balls pack: 5€": "Paquete de pelotas: 5€",
-    "**Our customers are kindly requested to pay in advance for the facilities, thank you.**":"**Se ruega a nuestros clientes el pago por adelantado de las instalaciones, gracias.**"
+    "**Our customers are kindly requested to pay in advance for the facilities, thank you.**":"**Se ruega a nuestros clientes el pago por adelantado de las instalaciones, gracias.**",
+    "Send": "Enviar", 
+    "We will answer you as soon as possible": "Le responderemos lo antes posible", 
+    "Message sended": "Mensaje enviado", 
+    "You have reached maximum active bookings": "Ha alcanzado el máximo de reservas activas",
+    "Unsuccesfull bookings": "Reservas fallidas"
+
 }
