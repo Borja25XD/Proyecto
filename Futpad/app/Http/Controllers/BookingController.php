@@ -44,8 +44,10 @@ class BookingController extends Controller
     {
         date_default_timezone_set('Europe/London');
         //return (auth()->user()->email);
-        if(auth()->user()->type == 'admin') {
-            return back();
+        if (auth()->user() != null) {
+            if (auth()->user()->type == 'admin') {
+                return back();
+            }
         }
         request()->validate([
             "owner_name" => 'required',
@@ -65,7 +67,7 @@ class BookingController extends Controller
 
         if ($currentActiveBookings == 10) {
             $maxActiveBookings = true;
-            return (view('booking_confirmed')->with(["failed" => $failedBookings ,"max" => $maxActiveBookings]));
+            return (view('booking_confirmed')->with(["failed" => $failedBookings, "max" => $maxActiveBookings]));
         }
 
 
