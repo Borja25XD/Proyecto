@@ -118,7 +118,7 @@
                                         $total = 0;
                                     @endphp
                                     <li style="text-align: center"><a class="dropdown-item"
-                                            href="{{ route('cart.checkout') }}">{{ __('View all cart') }}<span>
+                                            href="{{ route('cart.checkout') }}">{{ __('View cart') }}<span>
                                                 ({{ Cart::getContent()->count() }})</span></a></li>
                                     @foreach ($cart as $item)
                                         @php
