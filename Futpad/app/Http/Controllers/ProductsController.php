@@ -16,7 +16,7 @@ class ProductsController extends Controller
     public function index(Request $request)
     {
         if(isset($request->category)){
-            $products = Products::where('category', '=', $request->category)->paginate(6);
+            $products = Products::where('category', '=', $request->category)->paginate(7);
         }else{
             $products = Products::paginate(10);
         }

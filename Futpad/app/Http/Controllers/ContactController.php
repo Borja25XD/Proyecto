@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
-        /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -32,8 +32,11 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->email == null){
-            $request->email == auth()->user()->email;
+        //return $request->subject == null;
+        if ($request->subject == null || $request->content == null) {
+            return back();
+        }else{
+
         }
         Mail::to("admin@futpad.es")->queue(new ContactSended($request));
         return redirect('/enviado');

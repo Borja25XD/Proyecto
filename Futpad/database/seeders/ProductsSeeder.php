@@ -340,12 +340,12 @@ class ProductsSeeder extends Seeder
                 'url' => 'zapatillas-kuikma-nino2',
             ],
             [
-                'name' => 'Padbol',
+                'name' => 'Padbol Ball',
                 'short_name' => 'PADBOL',
-                'description' => 'The official padball competition, perfecto for all pitches. It adjusts to bounces and is long lasting.',
+                'description' => 'The official padball competition, perfect for all pitches. It adjusts to bounces and is long lasting.',
                 'price' => 20,
-                'category' => 'Padbol',
-                'brand' => 'Padbol',
+                'category' => 'Balls',
+                'brand' => 'Futpad',
                 'url' => 'padbol',
             ],
         ];

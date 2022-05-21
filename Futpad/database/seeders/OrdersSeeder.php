@@ -17,12 +17,6 @@ class OrdersSeeder extends Seeder
         $orders = [
             [
                 'user_id' => 2,
-            ],
-            [
-                'user_id' => 2,
-            ],
-            [
-                'user_id' => 2,
             ]
         ];
         DB::table('orders')->insert($orders);
