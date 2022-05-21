@@ -339,6 +339,15 @@ class ProductsSeeder extends Seeder
                 'brand' => 'Kuikma',
                 'url' => 'zapatillas-kuikma-nino2',
             ],
+            [
+                'name' => 'Padbol',
+                'short_name' => 'PADBOL',
+                'description' => 'The official padball competition, perfecto for all pitches. It adjusts to bounces and is long lasting.',
+                'price' => 20,
+                'category' => 'Padbol',
+                'brand' => 'Padbol',
+                'url' => 'padbol',
+            ],
         ];
 
         DB::table('products')->insert($products);

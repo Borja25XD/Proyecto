@@ -26,6 +26,8 @@
                             value="Padelbatbag">{{ __('Padelbatbag') }}</button>
                         <button type="submit" class="button-nav" name="category" id="Sportshoes"
                             value="Sportshoes">{{ __('Sportshoes') }}</button>
+                        <button type="submit" class="button-nav" name="category" id="Padbol"
+                            value="Padbol">{{ __('Padbol') }}</button>
                     </form>
                 </div>
             </div>
