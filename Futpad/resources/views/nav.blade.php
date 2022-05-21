@@ -31,7 +31,7 @@
                     </li>
                 @else
                     <li class="nav-item col-1 text-center"><a class="nav-link"
-                            href={{ route('dashboard') }}>{{ __('My account') }}</a>
+                            href={{ route('dashboard') }}>{{ __('Account') }}</a>
                     </li>
                 @endif
                 <li class="nav-item col-1 text-center text-nowrap"><a class="nav-link" href="#"

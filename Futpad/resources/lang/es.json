@@ -821,7 +821,7 @@
     "Book": "Reservar",
     "Services": "Servicios", 
     "Phone": "Teléfono", 
-    "My account": "Mi cuenta",
+    "Account": "Cuenta",
     "Account information": "Información de la cuenta",
     "Show more": "Ver más", 
     "Bookings": "Reservas", 
@@ -914,5 +914,6 @@
     "Unsuccesfull bookings": "Reservas fallidas",
     "The official padball competition, perfecto for all pitches. It adjusts to bounces and is long lasting.": "La competición oficial de pádel, perfecta para todos los campos. Se ajusta a los rebotes y es de larga duración.",
     "Padbol": "Padbol",
-    "Padbol Ball": "Pelota de padbol"
+    "Padbol Ball": "Pelota de padbol", 
+    "Prices": "Precios"
 }
